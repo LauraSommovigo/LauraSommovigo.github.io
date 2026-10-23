@@ -1,0 +1,8 @@
+# BETA: blocks all crawlers. On launch, replace with the two lines below.
+User-agent: *
+Disallow: /
+
+# LAUNCH VERSION:
+# User-agent: *
+# Allow: /
+# Sitemap: https://laurasommovigo.github.io/sitemap.xml
