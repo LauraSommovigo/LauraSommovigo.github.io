@@ -41,3 +41,7 @@ Google ranks a personal page first when trusted sites link to it under your name
 6. Keep the site updated (new papers, talks). Fresh pages get recrawled more often.
 
 Expect indexing within days of Stage 3. Reaching the top spot usually takes 2–6 weeks once the links above are in place. Your name is distinctive, which helps.
+
+
+## Yearly update
+Once a year: replace `cv.pdf`, then edit `index.html` to add new first-author papers, talks and roles, and bump the "Updated" date in the footer. Upload the changed files on GitHub with **Add file → Upload files**.

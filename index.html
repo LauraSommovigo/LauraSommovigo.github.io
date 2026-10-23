@@ -15,25 +15,25 @@
 <meta property="og:url" content="https://laurasommovigo.github.io/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop offset='0' stop-color='%233d4fb0'/%3E%3Cstop offset='1' stop-color='%23b0612a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Laura Sommovigo", "url": "https://laurasommovigo.github.io/", "jobTitle": "Learning the Universe Research Fellow", "description": "Laura Sommovigo is an astrophysicist at Columbia University (Learning the Universe Fellow) studying galaxy formation and cosmic dust at cosmic dawn with JWST, ALMA, radiative transfer and simulations.", "affiliation": {"@type": "CollegeOrUniversity", "name": "Columbia University", "department": "Department of Astronomy"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Scuola Normale Superiore"}, {"@type": "CollegeOrUniversity", "name": "University of Pisa"}], "knowsAbout": ["Astrophysics", "Galaxy formation", "Cosmic dust", "Cosmic dawn", "JWST", "ALMA", "Radiative transfer"], "email": "mailto:laura.sommovigo.work@gmail.com", "sameAs": ["https://github.com/LauraSommovigo", "https://ui.adsabs.harvard.edu/search/q=author%3A%22Sommovigo%2C%20L%22"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Slab:wght@300;400;500;600&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Laura Sommovigo", "url": "https://laurasommovigo.github.io/", "jobTitle": "Learning the Universe Research Fellow", "description": "Laura Sommovigo is an astrophysicist at Columbia University (Learning the Universe Fellow) studying galaxy formation and cosmic dust at cosmic dawn with JWST, ALMA, radiative transfer and simulations.", "affiliation": {"@type": "CollegeOrUniversity", "name": "Columbia University", "department": "Department of Astronomy"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Scuola Normale Superiore"}, {"@type": "CollegeOrUniversity", "name": "University of Pisa"}], "knowsAbout": ["Astrophysics", "Galaxy formation", "Cosmic dust", "Cosmic dawn", "JWST", "ALMA", "Radiative transfer"], "email": "mailto:laura.sommovigo.work@gmail.com", "sameAs": ["https://github.com/LauraSommovigo", "https://ui.adsabs.harvard.edu/public-libraries/yGCpjRKhTiK-mFa8iOseqA"]}</script>
 </head>
 <body>
 <style>
 /* Layout: one column; the interactive scale explorer (grains → clouds → galaxies → populations, UV ↔ far-IR) is the centerpiece */
 :root{
   --bg:#f6f7f9; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --rule:#dde0e7;
-  --uv:#3d4fb0; --dust:#b0612a; --link:#2f43a3; --sel:#eef0f8;
-  --display:"Spectral", Georgia, "Times New Roman", serif;
+  --uv:#3d4fb0; --dust:#b0612a; --link:#2f43a3; --sel:#eef0f8; --mw:#c2185b; --st:#0e7c6b;
+  --display:"Roboto Slab", Rockwell, Georgia, serif;
   --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#101218; --surface:#161922; --fg:#e6e8ee; --muted:#9aa1b2; --rule:#2a2f3c;
-  --uv:#8d9cf2; --dust:#e39a62; --link:#a5b2ff; --sel:#1d2130; color-scheme:dark }}
+  --uv:#8d9cf2; --dust:#e39a62; --link:#a5b2ff; --sel:#1d2130; --mw:#f06aa5; --st:#4fd1b8; color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#101218; --surface:#161922; --fg:#e6e8ee; --muted:#9aa1b2; --rule:#2a2f3c;
-  --uv:#8d9cf2; --dust:#e39a62; --link:#a5b2ff; --sel:#1d2130; color-scheme:dark }
+  --uv:#8d9cf2; --dust:#e39a62; --link:#a5b2ff; --sel:#1d2130; --mw:#f06aa5; --st:#4fd1b8; color-scheme:dark }
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -43,7 +43,7 @@ body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);margin:0}
 a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--uv);outline-offset:3px;border-radius:3px}
-h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
 h1{font-size:clamp(2.4rem,6vw,3.3rem);line-height:1.05;letter-spacing:-.01em}
 h2{font-size:clamp(1.5rem,3vw,1.85rem);line-height:1.2}
 p{margin:0}
@@ -60,6 +60,7 @@ header{display:grid;gap:1rem}
 .portrait{width:7.5rem;height:7.5rem;border-radius:50%;object-fit:cover;flex:none;background:var(--rule);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--rule)}
 .role{font-size:1.08rem;color:var(--muted);max-width:44rem}
 .role strong{color:var(--fg);font-weight:500}
+.bio{max-width:46rem;font-size:1rem;line-height:1.65}
 .links{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;font-size:.95rem;padding:0;margin:.25rem 0 0;list-style:none}
 
 section{margin-top:3.5rem;display:grid;gap:1rem}
@@ -84,8 +85,11 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .panels{min-width:0;padding:1.4rem 1.6rem 1.6rem;display:grid;gap:1.1rem;align-content:start}
 .axis{display:grid;gap:.35rem}
 .axis .band{height:6px;border-radius:3px;background:linear-gradient(90deg,#4a3bb8 0%,#3d6fd1 14%,#3fa3c4 26%,#7fbf6a 36%,#e2c24a 44%,#e08a3a 54%,#c4552d 68%,#8e3a2a 84%,#5a2a26 100%)}
-.axis .ends{display:flex;justify-content:space-between;gap:1rem;font:400 .7rem/1.3 var(--mono);color:var(--muted)}
-.axis .ends span:last-child{text-align:right}
+.axis-grid{display:grid;grid-template-columns:6.2rem minmax(0,1fr);gap:.35rem .75rem;align-items:start}
+.ax-h{font:500 .7rem/1.35 var(--mono);letter-spacing:.03em;color:var(--fg);padding-top:.1rem}
+.ax-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;font:400 .7rem/1.35 var(--mono);color:var(--muted)}
+.ax-row span:nth-child(2){text-align:center} .ax-row span:last-child{text-align:right}
+.ax-row.obs{color:var(--fg)}
 .panel{display:grid;gap:1rem;min-width:0}
 .panel h3{font-size:1.45rem;line-height:1.2}
 .panel .len{font:400 .75rem/1.4 var(--mono);color:var(--dust);letter-spacing:.06em}
@@ -96,6 +100,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .cols2 .ir h4{border-color:var(--dust);color:var(--dust)}
 .proj{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;font-size:.93rem;line-height:1.55}
 .proj strong{font-weight:600}
+.proj .pq{display:block;font-family:var(--display);font-size:1.02rem;line-height:1.3;color:var(--fg);margin-bottom:.2rem}
 .proj a{font-family:var(--mono);font-size:.76rem;white-space:nowrap}
 .next{font-size:.93rem;color:var(--muted);border-left:2px solid var(--dust);padding-left:.9rem;max-width:44rem}
 .credit{font-size:.74rem;color:var(--muted)}
@@ -105,6 +110,24 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .figs.one{grid-template-columns:minmax(0,28rem)}
 .figs.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .figs.wide{grid-template-columns:minmax(0,1fr)}
+.td-fig{max-width:42rem}
+.figs.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.figs.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.figs.gallery .zoom img{aspect-ratio:4/3;object-fit:contain}
+.more-figs{justify-self:start;font:500 .85rem var(--body);color:var(--link);background:transparent;border:1px solid var(--rule);border-radius:6px;padding:.45rem .8rem;cursor:pointer}
+.more-figs:hover{border-color:var(--link)}
+.works{list-style:none;padding:0;margin:0;display:grid;gap:1rem;max-width:46rem}
+.works li{display:grid;gap:.2rem}
+.works .t{font-family:var(--display);font-size:1.08rem;line-height:1.35}
+.works .t a{color:var(--fg);text-decoration:none}
+.works .t a:hover{color:var(--link);text-decoration:underline}
+.works .m{font-size:.86rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.3rem .7rem;align-items:center}
+.badge{font:500 .62rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.3rem .45rem;border-radius:4px;border:1px solid currentColor}
+.badge.first{color:var(--dust)} .badge.co{color:var(--muted)}
+.works-note{font:400 .74rem/1.5 var(--mono);color:var(--muted);letter-spacing:.03em}
+.personal{display:grid;grid-template-columns:auto 1fr;gap:1.25rem 2rem;align-items:start;max-width:52rem}
+.personal p{max-width:40rem}
+.figs.pair{grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:start}
 .fig{margin:0;display:grid;gap:.4rem;min-width:0;align-content:start}
 .zoom{all:unset;box-sizing:border-box;cursor:zoom-in;display:block;background:#fff;border:1px solid var(--rule);border-radius:6px;padding:.35rem;line-height:0}
 .zoom img{width:100%;height:auto;display:block;border-radius:3px}
@@ -114,7 +137,81 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .fig figcaption a{font-family:var(--mono);font-size:.74rem;white-space:nowrap}
 
 /* leadership */
-.lead-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+
+.recipe{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.5fr) auto minmax(0,1fr);gap:.6rem;align-items:center;background:var(--sel);border-radius:8px;padding:.8rem}
+.ing{display:grid;gap:.4rem;justify-items:start;min-width:0}
+.ing-h{font:500 .68rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.ing-note{font-size:.74rem;line-height:1.35;color:var(--muted)}
+.ing-out{border:1px solid var(--rule);background:var(--surface);border-radius:8px;padding:.6rem .7rem}
+.op{font:500 1.3rem/1 var(--body);color:var(--muted);justify-self:center}
+.dustchip{font:600 .8rem/1.2 var(--body);padding:.25rem .5rem;border-radius:4px;border:1.5px solid currentColor;background:var(--surface)}
+.dustchip.mw{color:var(--mw)} .dustchip.st{color:var(--st)}
+.slide-steps{display:flex;flex-wrap:wrap;gap:.4rem}
+.step{font:500 .78rem/1 var(--mono);letter-spacing:.03em;color:var(--muted);background:transparent;border:1px solid var(--rule);border-radius:999px;padding:.45rem .75rem;cursor:pointer}
+.step.is-on{color:var(--fg);border-color:var(--dust)}
+.ism-states{display:flex;gap:.5rem}
+.ism-state{all:unset;box-sizing:border-box;cursor:pointer;display:grid;justify-items:center;gap:.25rem;padding:.35rem .4rem;border-radius:8px;border:1.5px solid transparent;opacity:.55;transition:opacity .3s,border-color .3s}
+.ism-state img{width:3.6rem;height:3.6rem;border-radius:50%;object-fit:cover}
+.ism-state .pdf{width:3.6rem;height:1.35rem}
+.ism-state .pdf path{fill:var(--sel);stroke:var(--fg);stroke-width:1}
+.ism-state .pdf line{stroke:var(--muted);stroke-width:1}
+.ism-state span{font-size:.72rem;color:var(--fg)}
+.ism-state.is-on{opacity:1;border-color:var(--dust);background:var(--surface)}
+.ism-state:focus-visible{outline:2px solid var(--uv);outline-offset:2px}
+.recipe-extra{font-size:.8rem;color:var(--muted)}
+.slides{position:relative;background:#fff;border:1px solid var(--rule);border-radius:6px;padding:.4rem;aspect-ratio:1500/982;max-width:100%}
+.slides .slide{position:absolute;inset:.4rem;width:calc(100% - .8rem);height:calc(100% - .8rem);object-fit:contain;opacity:0;transition:opacity .9s ease}
+.slides .slide.is-on{opacity:1}
+@media (prefers-reduced-motion:reduce){.slides .slide{transition:none}}
+.lead-cards > .card{grid-column:1 / -1}
+.card-wide{grid-column:1 / -1;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:1.25rem 1.75rem;align-items:start}
+.card-text{display:grid;gap:.55rem;align-content:start;min-width:0}
+.story{gap:.8rem}
+.story-nav{display:flex;flex-wrap:wrap;gap:.4rem}
+.story-tab{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .65rem .35rem .4rem;border:1px solid var(--rule);border-radius:999px;font-size:.78rem;color:var(--muted)}
+.story-tab .n{display:grid;place-items:center;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--sel);font:600 .72rem/1 var(--mono);color:var(--fg)}
+.story-tab.is-on{border-color:var(--dust);color:var(--fg)}
+.story-tab.is-on .n{background:var(--dust);color:var(--surface)}
+.story-tab:focus-visible{outline:2px solid var(--uv);outline-offset:2px}
+.story-step{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.25rem;align-items:center}
+.story-media{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:.35rem;line-height:0}
+.story-media img,.story-svg{width:100%;height:auto;display:block;aspect-ratio:750/645}
+.story-text{display:grid;gap:.5rem;align-content:center}
+.story-n{font:500 .7rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dust)}
+.story-text h4{margin:0;font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.25}
+.story-text p{font-size:.95rem;line-height:1.6}
+.story-ctrl{display:flex;gap:.5rem}
+.story-ctrl button{font:500 .82rem var(--body);color:var(--link);background:transparent;border:1px solid var(--rule);border-radius:6px;padding:.4rem .75rem;cursor:pointer}
+.story-ctrl button:hover{border-color:var(--link)}
+.pipe{gap:.75rem}
+.pipe-row{display:grid;grid-template-rows:auto auto auto;column-gap:.4rem;row-gap:.45rem;align-items:start}
+.pipe-head{display:grid;gap:.15rem;align-self:end}
+.pipe-img{background:#fff;border:0;padding:0;border-radius:4px;overflow:hidden}
+.pipe-img img{width:100%;height:auto;display:block}
+.pipe-cap{font-size:.74rem;line-height:1.4;color:var(--muted);margin:0}
+.pipe-arrow{align-self:center;justify-self:center;color:var(--muted);line-height:0}
+.pipe-scale{font:400 .66rem/1.3 var(--mono);letter-spacing:.06em;color:var(--dust)}
+.pipe-lab{font-family:var(--display);font-size:1rem;line-height:1.2}
+.pipe-down{display:flex;align-items:center;justify-content:center;gap:.5rem;color:var(--dust);font:500 .72rem/1.3 var(--mono);letter-spacing:.04em;padding:.35rem 0}
+.pipe-down span{color:var(--dust)}
+.pipe-final,.pipe-final span{color:var(--fg);font-weight:600}
+.pipe-sep{align-self:center;justify-self:center;color:var(--muted);font:300 1.4rem/1 var(--body)}
+.pipe-head.uv .pipe-scale{color:var(--uv)} .pipe-head.ir .pipe-scale{color:var(--dust)}
+.pipe-out{padding-top:.1rem;max-width:40rem;margin-inline:auto;width:100%}
+.pipe-in{max-width:30rem;margin-inline:auto;width:100%}
+.pipe-pop{display:grid;gap:.5rem}
+.lf-btn{font:600 .8rem/1.2 var(--body);padding:.35rem .65rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;cursor:pointer;opacity:.6}
+.lf-btn.mw{color:var(--mw)} .lf-btn.st{color:var(--st)}
+.lf-btn.is-on{opacity:1;border-color:currentColor;background:var(--surface)}
+.lf-controls{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}
+.lf-toggle{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
+.lf-k{font:500 .68rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:.15rem}
+.lf-btn{color:var(--fg)}
+#lf-img{position:static;opacity:1;transition:opacity .18s ease;width:100%;height:auto;display:block;margin:0 auto;border-radius:4px}
+#lf-img.z14{width:62.8%}
+.lf-missing{position:absolute;inset:0;display:grid;place-items:center;margin:0;font:500 .9rem var(--body);color:#5a6070}
+.lf-slides{aspect-ratio:auto;border:0;padding:0;background:transparent;text-align:center}
+.lead-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem 1.2rem;display:grid;gap:.55rem;align-content:start;min-width:0}
 .chip{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.35rem .5rem;border-radius:4px;border:1px solid currentColor}
 .chip.obs{color:var(--dust)} .chip.th{color:var(--uv)} .chip.team{color:var(--muted)}
@@ -169,9 +266,12 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   .tab .tlen{font-size:.62rem}
   .ladder-note{display:none}
   .lead-cards{grid-template-columns:1fr}
+  .card-wide{grid-template-columns:1fr}
   .figs.three{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
+  .axis-grid{grid-template-columns:1fr}
+  .axis-grid > span:first-child{display:none}
   .intro{flex-direction:column;align-items:flex-start;gap:.75rem;margin-top:-2.9rem}
   .portrait{width:5.75rem;height:5.75rem}
   .tab .icon,.tab-overview .ov{width:2.9rem;height:2.9rem}
@@ -179,7 +279,17 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   .tab .tname{font-size:.72rem}
   .tab .tlen{display:none}
   .panels{padding:1.1rem 1rem 1.2rem}
-  .cols2,.cols,.figs.three{grid-template-columns:1fr}
+  .recipe{grid-template-columns:1fr}
+  .pipe-row{display:flex;flex-direction:column;gap:.4rem}
+  .pipe-sep{align-self:center}
+  .pipe-cap{margin-bottom:.2rem}
+  .pipe-head,.pipe-img,.pipe-cap{align-self:stretch}
+  .story-step{grid-template-columns:1fr}
+  .story-tab .l{display:none}
+  .story-tab{padding:.3rem}
+  .op{transform:rotate(90deg)}
+  .cols2,.cols,.figs.three,.figs.pair,.figs.two,.figs.gallery{grid-template-columns:1fr}
+  .personal{grid-template-columns:1fr}
   .roles li{grid-template-columns:1fr;gap:.1rem}
   .talks{grid-template-columns:1fr;gap:1.75rem}
 }
@@ -192,29 +302,29 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
     <div class="intro">
       <img class="portrait" src="photo.jpg" width="320" height="320" alt="Portrait of Laura Sommovigo">
       <div class="intro-text">
-        <span class="eyebrow">Astrophysicist · Theory and observations · Cosmic dust</span>
+        <span class="eyebrow">Astrophysicist · Theory and observations · High-redshift galaxies · Cosmic dust</span>
         <h1>Laura Sommovigo</h1>
       </div>
     </div>
-    <p class="role"><strong>Learning the Universe Research Fellow</strong>, Department of Astronomy, Columbia University, New York. I study how the first galaxies formed and how dust shapes what we see of them. I work as both a theorist and an observer: I build the models and help lead the ALMA and JWST surveys that test them.</p>
+    <p class="role"><strong>Learning the Universe Research Fellow</strong>, Department of Astronomy, Columbia University, New York</p>
+    <p class="bio">I am an astrophysicist studying how galaxies formed and evolved in the first billion years of cosmic history, with a focus on the physics of dust. I combine ALMA and JWST observations with physically motivated models and numerical simulations to understand how dust forms, evolves and reshapes what we observe of early galaxies. I develop multi-scale frameworks that connect ISM physics to galaxy-scale observables, using radiative transfer, synthetic observations and forward modelling. I am co-PI and theory lead of the ALMA Large Program <a href="https://phoenix.strw.leidenuniv.nl/">PHOENIX</a>, co-lead the <a href="https://learning-the-universe.org/working_groups/SO_working_group/">Synthetic Observations Working Group</a> of the <a href="https://learning-the-universe.org/">Learning the Universe</a> theory collaboration, and am a co-investigator on more than 30 successful ALMA, JWST and Roman proposals.</p>
     <ul class="links">
       <li><a href="#contact">Email</a></li>
-      <li><a href="cv.pdf">CV (PDF)</a></li>
-      <li><a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Sommovigo%2C%20L%22&amp;sort=date%20desc">NASA ADS</a></li>
+      <li><a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      <li><a href="https://ui.adsabs.harvard.edu/public-libraries/yGCpjRKhTiK-mFa8iOseqA">NASA ADS</a></li>
       <li><a href="https://arxiv.org/search/?query=Sommovigo%2C+L&amp;searchtype=author&amp;order=-announced_date_first">arXiv</a></li>
       <li><a href="https://github.com/LauraSommovigo">GitHub</a></li>
     </ul>
-    <nav class="sitenav" aria-label="Sections"><a href="#research">Research</a><a href="#leadership">Leadership</a><a href="#publications">Publications</a><a href="#talks">Talks</a><a href="#cv">CV</a><a href="#contact">Contact</a></nav>
+    <nav class="sitenav" aria-label="Sections"><a href="#research">Research</a><a href="#leadership">Collaborations</a><a href="#publications">Publications</a><a href="#talks">Talks</a><a href="#cv">CV</a><a href="#contact">Contact</a></nav>
   </header>
 
   <section id="research">
     <span class="eyebrow">Research</span>
-    <h2>Dust across scales and wavelengths</h2>
-    <p class="lede measure">JWST sees UV-bright, apparently dust-free galaxies at z&nbsp;&gt;&nbsp;10, while ALMA finds dust-rich systems only a few hundred million years later. Does this need new galaxy-formation physics, or does it follow once dust is modelled consistently, from single grains to whole galaxy populations?</p>
+    <h2>Dust: a puzzle across scales and wavelengths</h2>
 
     <div class="explorer">
       <div class="ladder" role="tablist" aria-orientation="vertical" aria-label="Physical scales">
-        <button class="tab tab-overview" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true"><span class="ov">ALL<br>SCALES</span><span><span class="tname">The full picture</span><span class="tlen">grains → universe</span></span></button>
+        <button class="tab tab-overview" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true"><span class="ov">ALL<br>SCALES</span><span><span class="tname">The full picture</span><span class="tlen">grains → galaxies</span></span></button>
         <button class="tab" role="tab" id="tab-grains" aria-controls="panel-grains" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-grain.jpg" alt="" width="320" height="320"><span><span class="tname">Dust grains</span><span class="tlen">microns</span></span></button>
         <button class="tab" role="tab" id="tab-clouds" aria-controls="panel-clouds" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-cloud.jpg" alt="" width="320" height="320"><span><span class="tname">Star-forming clouds</span><span class="tlen">parsecs</span></span></button>
         <button class="tab" role="tab" id="tab-galaxies" aria-controls="panel-galaxies" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-galaxy.jpg" alt="" width="320" height="320"><span><span class="tname">Galaxies</span><span class="tlen">kiloparsecs</span></span></button>
@@ -223,99 +333,161 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
       </div>
 
       <div class="panels">
-        <div class="axis" aria-hidden="true"><div class="band"></div><div class="ends"><span>UV–optical · JWST · attenuation</span><span>far-infrared · ALMA · emission</span></div></div>
+        <div class="axis">
+          <div class="axis-grid">
+            <span></span><div class="band" aria-hidden="true"></div>
+            <span class="ax-h">Rest frame</span>
+            <div class="ax-row"><span>UV–optical<br>0.1–1&nbsp;µm · attenuation</span><span>mid-IR<br>∼3–35&nbsp;µm</span><span>far-IR<br>∼50–500&nbsp;µm · dust emission</span></div>
+            <span class="ax-h">Observed at z&nbsp;=&nbsp;6</span>
+            <div class="ax-row obs"><span>0.7–7&nbsp;µm<br>JWST; HST to 1.7&nbsp;µm</span><span>∼24–235&nbsp;µm<br>PRIMA</span><span>∼0.35–3.5&nbsp;mm<br>ALMA; NOEMA ≳1&nbsp;mm</span></div>
+          </div>
+        </div>
 
         <div class="panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
           <h3>One picture, from grains to galaxy populations</h3>
-          <p class="q">Dust absorbs, scatters and re-emits starlight, so it shapes nearly everything we measure about a galaxy. The physics is set at very different scales. Grain size and composition fix the extinction curve. Cloud structure turns it into an attenuation curve and sets the dust temperature. Galaxy geometry makes attenuation depend on viewing angle. Galaxy populations decide how dust builds up and survives across cosmic time. I model each link and connect them, so JWST's UV view and ALMA's infrared view of the same galaxies can be read with one consistent physical picture.</p>
+          <p class="q">Dust absorbs, scatters and re-emits starlight, so it shapes nearly every observable property of a galaxy. The relevant physics spans many scales. Grain composition and size distribution set the extinction curve. In star-forming clouds, turbulence and the dust–star geometry turn extinction into attenuation and set the dust temperature. Across a galaxy, attenuation depends on viewing angle. Over cosmic time, dust production, growth, destruction and ejection set the dust content of galaxy populations. I model each scale and connect them, so that UV and infrared observations of the same galaxies can be interpreted consistently.</p>
           <div class="cols2">
-            <div class="uv"><h4>UV–optical · what JWST sees</h4>
-              <ul class="proj"><li>Dust <strong>dims and reddens starlight</strong>. Attenuation curves, UV slopes and UV luminosity functions all carry its imprint, mixed with geometry and viewing angle.</li></ul></div>
-            <div class="ir"><h4>Far-infrared · what ALMA sees</h4>
-              <ul class="proj"><li>The absorbed energy comes out as <strong>thermal dust emission</strong>. Dust masses, temperatures and infrared luminosities measure what the UV misses.</li></ul></div>
+            <div class="uv"><h4>Rest-frame UV–optical</h4>
+              <ul class="proj"><li>Dust <strong>dims and reddens starlight</strong>. Attenuation curves, UV slopes and UV luminosity functions carry its imprint, but also depend on geometry and viewing angle.</li></ul></div>
+            <div class="ir"><h4>Rest-frame far-infrared</h4>
+              <ul class="proj"><li>The absorbed energy is re-emitted as <strong>thermal dust emission</strong>. The far-infrared continuum constrains dust temperature, dust mass and dust-obscured star formation.</li></ul></div>
           </div>
-          <p class="next">Methods: analytical models, radiative transfer, cosmological simulations, synthetic observations and interpretable machine learning, tested against the ALMA and JWST programmes I help lead.</p>
+            <figure class="fig pipe" id="pipe">
+              <div class="pipe-row pipe-in" style="grid-template-columns:1.026fr 2rem 1.185fr">
+                <div class="pipe-head " style="grid-column:1;grid-row:1"><span class="pipe-scale">microns · input</span><span class="pipe-lab">Grain properties</span></div>
+                <button type="button" class="zoom pipe-img" style="grid-column:1;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-grains-kappa.jpg" width="955" height="931" loading="lazy" alt="Dust opacity versus wavelength for Milky Way and large-grain stellar dust, with grain-size distributions in the inset"></button>
+                <p class="pipe-cap" style="grid-column:1;grid-row:3">Milky Way vs large-grain (“stellar”) dust: the opacity at 1500&nbsp;Å differs by ∼13×.</p>
+                <span class="pipe-sep" style="grid-column:2;grid-row:2" aria-hidden="true">+</span>
+                <div class="pipe-head " style="grid-column:3;grid-row:1"><span class="pipe-scale">parsecs · input</span><span class="pipe-lab">ISM structure</span></div>
+                <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-ism-pdf.jpg" width="596" height="503" loading="lazy" alt="Distribution of dust surface density for Mach numbers 10 and 100, compared with galaxy-to-galaxy scatter"></button>
+                <p class="pipe-cap" style="grid-column:3;grid-row:3">Turbulence broadens the distribution of dust columns (Mach 10 vs 100).</p>
+              </div>
+              <div class="pipe-down" aria-hidden="true"><svg viewBox="0 0 26 46" width="20" height="36"><path d="M13.2 2 C 11.4 10, 15.6 17, 12.8 26 C 11.6 31, 13.4 36, 13 41" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 33.5 C 9 36.5, 11 39, 13 42.5 C 15.2 38.8, 17.4 36.4, 19.8 34.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>radiative transfer</span></div>
+              <div class="pipe-row pipe-out" style="grid-template-columns:2.409fr 2rem 1.403fr">
+                <div class="pipe-head uv" style="grid-column:1;grid-row:1"><span class="pipe-scale">rest-frame UV–optical</span><span class="pipe-lab">Attenuation curve</span></div>
+                <button type="button" class="zoom pipe-img" style="grid-column:1;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-galaxy-attenuation.jpg" width="1277" height="530" loading="lazy" alt="Attenuation curves for Milky Way and stellar dust in point-source and mixed star-dust geometries"></button>
+                <p class="pipe-cap" style="grid-column:1;grid-row:3">Grain type and star–dust geometry both change the attenuation curve.</p>
+                <div class="pipe-head ir" style="grid-column:3;grid-row:1"><span class="pipe-scale">rest-frame far-infrared</span><span class="pipe-lab">Infrared SED</span></div>
+                <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-sed-z7.jpg" width="783" height="558" loading="lazy" alt="Predicted greybody dust SEDs at z = 7 for Milky Way and stellar dust and Mach numbers 10 and 100, compared with REBELS ALMA measurements (Inami+22)"></button>
+                <p class="pipe-cap" style="grid-column:3;grid-row:3">Dust emission is optically thin, so turbulence barely changes the infrared SED; grain type does.</p>
+              </div>
+              <div class="pipe-down pipe-final" aria-hidden="true"><svg viewBox="0 0 26 46" width="20" height="36"><path d="M13.2 2 C 11.4 10, 15.6 17, 12.8 26 C 11.6 31, 13.4 36, 13 41" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 33.5 C 9 36.5, 11 39, 13 42.5 C 15.2 38.8, 17.4 36.4, 19.8 34.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>galaxy population implications</span></div>
+              <div class="pipe-pop">
+                <div class="lf-controls">
+                  <div class="lf-toggle" role="group" aria-label="Redshift">
+                    <span class="lf-k">Redshift</span>
+                    <button type="button" class="lf-btn is-on" data-k="z" data-v="7" aria-pressed="true">z ≈ 7</button>
+                    <button type="button" class="lf-btn" data-k="z" data-v="14" aria-pressed="false">z ≈ 14</button>
+                  </div>
+                  <div class="lf-toggle" role="group" aria-label="ISM structure">
+                    <span class="lf-k">ISM</span>
+                    <button type="button" class="lf-btn" data-k="ism" data-v="uniform" aria-pressed="false">Uniform</button>
+                    <button type="button" class="lf-btn is-on" data-k="ism" data-v="turbulent" aria-pressed="true">Turbulent</button>
+                  </div>
+                  <div class="lf-toggle" role="group" aria-label="Grain properties">
+                    <span class="lf-k">Grains</span>
+                    <button type="button" class="lf-btn mw is-on" data-k="dust" data-v="mw" aria-pressed="true">Milky Way dust grains</button>
+                    <button type="button" class="lf-btn st" data-k="dust" data-v="stellar" aria-pressed="false">Large grains</button>
+                  </div>
+                </div>
+                <div class="slides lf-slides" id="lf-slides" aria-live="polite">
+                  <img class="slide is-on" id="lf-img" src="figs/p26-lf-z7-turbulent-mw.jpg" width="1800" height="913" alt="UV and infrared luminosity functions at z ≈ 7, turbulent ISM, Milky Way dust">
+                  <p class="lf-missing" id="lf-missing" hidden>Plot for this combination to come.</p>
+                </div>
+              </div>
+              <figcaption>How the scales combine in a population-level test. Grain properties and ISM structure set the attenuation of each galaxy; the resulting UV and infrared luminosity functions are compared with data for different star-formation efficiencies (ε<sub>⋆</sub>) and supernova dust yields (y<sub>d</sub>). Use the switches to change one ingredient at a time. At z&nbsp;≈&nbsp;7, a turbulent ISM with Milky Way dust and high dust yields matches both the UV and infrared data, while a uniform ISM cannot. At z&nbsp;≈&nbsp;14, the brighter UV luminosity function measurements favour low dust yields and/or a higher star-formation efficiency, though current data still span 1–2&nbsp;dex. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a> · <a href="https://github.com/LauraSommovigo/dust_JWST_highz">Code on GitHub</a></figcaption>
+            </figure>
+          <p class="next">Methods: analytical models, radiative transfer, cosmological simulations, synthetic observations and interpretable machine learning, tested against multi-wavelength observations.</p>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-grains" aria-labelledby="tab-grains" hidden>
           <span class="len">microns · dust grains</span>
           <h3>Who makes the first dust, and what is it made of?</h3>
-          <p class="q">Grain size and composition set the intrinsic extinction curve, the starting point for everything downstream. How grains are produced and reprocessed changes over cosmic time.</p>
+          <p class="q">Grain composition and size distribution set the intrinsic extinction curve. Both depend on how dust is produced and reprocessed in the interstellar medium, which can change over cosmic time.</p>
           <div class="cols2">
             <div class="uv"><h4>UV–optical · attenuation</h4><ul class="proj">
-              <li><strong>Evolving grain sizes.</strong> A live dust model that evolves dust mass and grain-size distribution shows when small grains, scattering and viewing angle control the attenuation curve. <a href="https://arxiv.org/abs/2508.21157">Matsumoto, Sommovigo+26</a></li>
-              <li><strong>Dust mixtures.</strong> Milky Way, SMC and large-grain dust compared across thousands of simulated galaxies. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></li>
+              <li><span class="pq">How do evolving grain sizes shape the attenuation curve?</span> Simulations that evolve dust mass and grain-size distribution show when small grains, scattering, viewing angle or unobscured young stars set the shape of the attenuation curve. <a href="https://arxiv.org/abs/2508.21157">Matsumoto, Sommovigo+26</a></li>
+              <li><span class="pq">Can one attenuation law describe different grain mixtures?</span> A new functional form for the attenuation curve fits Milky Way, SMC and large-grain dust alike. Comparing its parameters separates the effects of galaxy properties and viewing angle from those of grain properties, and identifies the most informative parameter combinations. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></li>
             </ul></div>
             <div class="ir"><h4>Far-infrared · emission</h4><ul class="proj">
-              <li><strong>Supernova dust.</strong> Dust-to-stellar mass ratios of about 10<sup>−3</sup> in REBELS and ALPINE galaxies point to supernova dust production, possibly helped by grain growth. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a> <a href="https://arxiv.org/abs/2210.09312">22b</a></li>
+              <li><span class="pq">What produced the dust in galaxies at z ≈ 5–7?</span> Dust-to-stellar mass ratios of ∼3×10<sup>−3</sup> in REBELS and ALPINE galaxies require grain growth in the ISM on top of supernova dust; growth may dominate, depending on how much supernova dust survives the reverse shock. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a> <a href="https://arxiv.org/abs/2210.09312">22b</a></li>
             </ul></div>
           </div>
-          <div class="figs one">
+          <div class="figs gallery">
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-attenuation-corner.jpg" width="1217" height="832" loading="lazy" alt="Corner plot of best-fit attenuation-law parameters for Milky Way, SMC and stellar dust, with an inset of median attenuation curves"></button>
+              <figcaption>Best-fit parameters of the new attenuation curve for TNG50 and TNG100 galaxies. Scatter within one colour reflects galaxy properties and viewing angle; offsets between colours reflect the grain mixture (Milky Way, SMC, large-grain “stellar”). Inset: median attenuation curves. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></figcaption></figure>
             <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-dust-to-stellar-mass.jpg" width="1000" height="989" loading="lazy" alt="Dust-to-stellar mass of REBELS and ALPINE galaxies compared with dust production models"></button>
-              <figcaption>Dust masses of REBELS and ALPINE galaxies against dust-production models. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22</a></figcaption></figure>
+              <figcaption>Dust versus stellar mass for REBELS and ALPINE galaxies, compared with supernova dust-production scenarios and galaxy models. <a href="https://arxiv.org/abs/2210.09312">Sommovigo+22b</a>. Updated with REBELS-IFU in <a href="https://arxiv.org/abs/2501.10508">Algera+26</a>.</figcaption></figure>
+            <figure class="fig extra" hidden><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-predicted-curves.jpg" width="1022" height="1958" loading="lazy" alt="Predicted attenuation curves binned by A_V for Milky Way, SMC and stellar dust"></button>
+              <figcaption>Attenuation curves predicted from galaxy properties with the new scaling relations, in bins of A<sub>V</sub>, for each grain mixture. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></figcaption></figure>
           </div>
+          <button type="button" class="more-figs">Show 1 more figure</button>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-clouds" aria-labelledby="tab-clouds" hidden>
           <span class="len">parsecs · star-forming clouds</span>
           <h3>How much starlight stays hidden in its birth cloud?</h3>
-          <p class="q">In star-forming regions, turbulence, gas density and the geometry of dust and stars turn the extinction curve into an effective attenuation curve and set the dust temperature.</p>
+          <p class="q">In star-forming clouds, the turbulent gas structure and the relative geometry of dust and stars turn the extinction curve into an attenuation curve and set the dust temperature.</p>
           <div class="cols2">
             <div class="uv"><h4>UV–optical · attenuation</h4><ul class="proj">
-              <li><strong>Hidden starlight.</strong> Compact clouds at high redshift disperse slowly, so about 40% of young stars' UV light stays obscured. UV and infrared emission need not come from the same place. <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></li>
-              <li><strong>Clouds over their lifetime.</strong> UV and infrared radiation followed through the turbulent life of simulated molecular clouds. <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a></li>
+              <li><span class="pq">How long do newborn stars stay hidden?</span> Compact high-redshift clouds are dispersed more slowly by stellar feedback, so ∼40% of the UV light from newborn stars remains obscured. UV and infrared emission need not be co-spatial. <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></li>
+              <li><span class="pq">Can a 1D analytical model capture the essentials of 3D radiative transfer?</span> We compare SKIRT radiative transfer on simulated turbulent clouds with a 1D analytical model. The two broadly agree on infrared luminosity, SED shape, dust temperatures (means within ∼10–20&nbsp;K) and the radial UV optical depth, while the 3D simulations also reveal optically thin channels through which 0.1–10% of UV photons escape. <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a></li>
             </ul></div>
             <div class="ir"><h4>Far-infrared · emission</h4><ul class="proj">
-              <li><strong>Warm dust.</strong> An analytical cloud model predicts dust warmer than 60&nbsp;K in z&nbsp;∼&nbsp;8 galaxies, since confirmed by ALMA. <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></li>
+              <li><span class="pq">Why is dust warmer in early galaxies?</span> The analytical model predicts dust temperatures above 60&nbsp;K in compact clouds at z&nbsp;∼&nbsp;8, consistent with temperatures since measured in z&nbsp;∼&nbsp;8 galaxies. <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></li>
             </ul></div>
           </div>
-          <div class="figs one">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="421" height="413" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 2 parsec scale bar"></button>
-              <figcaption>Dust surface density in a simulated turbulent star-forming cloud. <a href="https://arxiv.org/abs/2407.01662">Di Mascia+25</a></figcaption></figure>
+          <div class="figs gallery">
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="451" height="448" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
+              <figcaption>Dust surface density in a simulated turbulent cloud; dots mark young stellar sources. <a href="https://arxiv.org/abs/2407.01662">Di Mascia+25</a></figcaption></figure>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="773" height="534" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
+              <figcaption>Spectrum of a simulated cloud from SKIRT radiative transfer (blue; intrinsic stellar spectrum dotted) compared with a 1D analytical model for a homogeneous cloud (green) and a cloud shaped by radiation pressure (magenta). <a href="https://arxiv.org/abs/2407.01662">Di Mascia+25</a>; model from <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></figcaption></figure>
           </div>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-galaxies" aria-labelledby="tab-galaxies" hidden>
           <span class="len">kiloparsecs · galaxies</span>
           <h3>What do attenuation and dust emission tell us about a galaxy?</h3>
-          <p class="q">Across a galaxy, varying column density, multiphase gas and the star–dust geometry make attenuation depend strongly on viewing angle, while dust emission stays nearly isotropic.</p>
+          <p class="q">Across a galaxy, variations in dust column density, multiphase gas and star–dust geometry make attenuation strongly dependent on the line of sight, while dust emission is close to isotropic.</p>
           <div class="cols2">
             <div class="uv"><h4>UV–optical · attenuation</h4><ul class="proj">
-              <li><strong>Priors for JWST attenuation curves.</strong> Radiative transfer on IllustrisTNG50 and TNG100 galaxies gives physically motivated attenuation curves for SED fitting. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></li>
-              <li><strong>An interpretable attenuation law.</strong> Machine-learning compression and symbolic regression give a four-parameter form tied to galaxy properties. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></li>
+              <li><span class="pq">Which attenuation curves should we assume in SED fitting?</span> Radiative transfer on IllustrisTNG50 and TNG100 galaxies gives physically motivated attenuation-curve priors for SED fitting. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></li>
+              <li><span class="pq">Which galaxy properties set the attenuation-curve shape?</span> Information-ordered compression and symbolic regression give a new four-parameter attenuation curve, with scaling relations linking its parameters to galaxy properties. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></li>
             </ul></div>
             <div class="ir"><h4>Far-infrared · emission</h4><ul class="proj">
-              <li><strong>Dust from a single ALMA band.</strong> Dust temperature and mass from one continuum point plus [C<span style="font-variant:small-caps">ii</span>], applied to the REBELS and ALPINE surveys. <a href="https://arxiv.org/abs/2102.08950">Sommovigo+21</a></li>
-              <li><strong>Multi-temperature dust.</strong> Single-temperature fits can miss dust mass and infrared luminosity by up to ∼1&nbsp;dex. <a href="https://arxiv.org/abs/2505.20105">Sommovigo &amp; Algera 25</a></li>
+              <li><span class="pq">What can large samples with single-band dust continuum tell us?</span> Dust temperature and mass from one continuum measurement combined with [C<span style="font-variant:small-caps">ii</span>]&nbsp;158&nbsp;µm, applied to the ALPINE (z&nbsp;≈&nbsp;4–6) and REBELS (z&nbsp;≈&nbsp;6–9) surveys. <a href="https://arxiv.org/abs/2102.08950">Sommovigo+21</a></li>
+              <li><span class="pq">How biased are single-temperature dust fits?</span> With the few continuum bands typically available at high redshift, single-temperature fits can be off by up to ∼1&nbsp;dex in dust mass, infrared luminosity and obscured star formation. <a href="https://arxiv.org/abs/2505.20105">Sommovigo &amp; Algera 25</a></li>
             </ul></div>
           </div>
-          <div class="figs one">
+          <div class="figs gallery">
             <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-attenuation-tng50.jpg" width="1400" height="782" loading="lazy" alt="A TNG50 galaxy imaged at 2175 Å and in g, r, z bands from four viewing angles, with the matching attenuation curves"></button>
-              <figcaption>One TNG50 galaxy seen from four angles: the attenuation curve changes with viewing geometry. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></figcaption></figure>
+              <figcaption>One TNG50 galaxy viewed from four angles (A–D): images at 2175&nbsp;Å and in the g, r and z bands, and the corresponding attenuation curves. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></figcaption></figure>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-multitemperature-seds.jpg" width="2000" height="1246" loading="lazy" alt="Dust temperature distributions, the resulting infrared SEDs across ALMA bands, and cumulative dust mass versus temperature, for different mean temperatures, widths and skewness"></button>
+              <figcaption>Dust temperature distributions (left), the resulting infrared SEDs with ALMA bands 3–10 shaded (middle), and cumulative dust mass versus temperature (right), varying the mean, width and skewness of the distribution. <a href="https://arxiv.org/abs/2505.20105">Sommovigo &amp; Algera 25</a></figcaption></figure>
           </div>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-cosmic" aria-labelledby="tab-cosmic" hidden>
           <span class="len">megaparsecs · galaxy populations</span>
           <h3>Do early galaxies need new physics, or better dust?</h3>
-          <p class="q">Across cosmic time, galaxy populations decide how dust builds up, gets ejected and survives. This is where models meet the statistics of JWST and ALMA surveys.</p>
+          <p class="q">Population statistics, such as UV and infrared luminosity functions, test dust models against the whole galaxy population rather than individual objects.</p>
           <div class="cols2">
             <div class="uv"><h4>UV–optical · attenuation</h4><ul class="proj">
-              <li><strong>Blue Monsters and dusty descendants.</strong> A forward model linking dust physics to UV and infrared luminosity functions from z&nbsp;≈&nbsp;7 to 14. A porous, turbulent ISM eases the UV–IR tension. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a></li>
-              <li><strong>Where has the dust gone?</strong> Dust ejection can explain blue, UV-bright galaxies at z&nbsp;&gt;&nbsp;10. <a href="https://arxiv.org/abs/2410.19042">Ferrara, Pallottini &amp; Sommovigo 25</a></li>
+              <li><span class="pq">Can current dust and galaxy-formation models reproduce both the UV and infrared luminosity functions out to z&nbsp;&gt;&nbsp;10?</span> A forward model combining the halo mass function, a simple galaxy-formation model, stellar population synthesis and dust prescriptions to predict UV and infrared luminosity functions at z&nbsp;=&nbsp;7–14. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a></li>
+              <li><span class="pq">Where has the dust gone in UV-bright galaxies at z&nbsp;&gt;&nbsp;10?</span> Radiation-driven outflows might clear dust from UV-bright galaxies at z&nbsp;&gt;&nbsp;10, making them appear blue. In the broader picture, though, outflows are only one of several effects that can produce this, so the interpretation is not straightforward. <a href="https://arxiv.org/abs/2209.06840">Ziparo+23</a> <a href="https://arxiv.org/abs/2410.19042">Ferrara, Pallottini &amp; Sommovigo 25</a></li>
             </ul></div>
             <div class="ir"><h4>Far-infrared · emission</h4><ul class="proj">
-              <li><strong>Cosmic dust temperature.</strong> The first physical model for how dust temperature evolves: dust runs warmer at early times as gas depletion times shorten. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a></li>
+              <li><span class="pq">How does dust temperature evolve across cosmic time?</span> A physical model for how dust temperature evolves with redshift: T<sub>d</sub> rises mildly with redshift because gas depletion times are shorter at early times. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a></li>
             </ul></div>
           </div>
-          <div class="figs three">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-dust-temperature.jpg" width="1654" height="931" loading="lazy" alt="Dust temperature versus redshift for star-forming galaxies from z = 0 to 9, with REBELS and ALPINE measurements and a physical model curve"></button>
-              <figcaption>Dust temperature against redshift: REBELS and ALPINE measurements and my physical model. <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-uniform-ism.jpg" width="1500" height="1035" loading="lazy" alt="Schematic: a uniform ISM with two dust mixtures fails to match both the UV and IR luminosity functions at z = 7"></button>
-              <figcaption>Uniform ISM: no single dust yield matches both the UV and IR luminosity functions at z&nbsp;≥&nbsp;7. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-porous-ism.jpg" width="1500" height="983" loading="lazy" alt="Schematic: a porous, turbulent ISM boosts UV escape and resolves the tension at z = 7, but not at z = 14"></button>
-              <figcaption>Porous, turbulent ISM: UV light escapes and the tension eases, but not at z&nbsp;&gt;&nbsp;10. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a></figcaption></figure>
+          <div class="figs wide">
+
           </div>
+          <div class="figs wide td-fig">
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-dust-temperature.jpg" width="1654" height="931" loading="lazy" alt="Dust temperature versus redshift for star-forming galaxies from z = 0 to 9, with REBELS and ALPINE measurements and a physical model curve"></button>
+              <figcaption>Dust temperature versus redshift: REBELS and ALPINE galaxies (from my [C<span style="font-variant:small-caps">ii</span>]-based method) and literature samples, with my physical model (dashed) and its predicted scatter (shaded). <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a></figcaption></figure>
+          </div>
+          
         </div>
 
         <p class="credit">Scale images: dust grain micrograph; simulated cloud from Di Mascia+25; SERRA galaxy from Pallottini+22; cosmic web from the IllustrisTNG collaboration.</p>
@@ -324,40 +496,32 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   </section>
 
   <section id="leadership">
-    <span class="eyebrow">Leadership</span>
-    <h2>Theorist and observer</h2>
-    <p class="measure">I work between simulation groups and observing teams. I lead theory for an ALMA Large Program, run an international team on dust physics, and co-lead synthetic observations for a Simons collaboration.</p>
+    <span class="eyebrow">Collaborations</span>
+    <h2>Theory and observations</h2>
+    <p class="measure">My work sits between simulation groups and observing teams, and much of it happens in collaborations.</p>
     <div class="lead-cards">
-      <article class="card">
+      <article class="card card-wide">
+        <div class="card-text">
         <span class="chip obs">Observations</span>
         <h3>PHOENIX</h3>
         <span class="pos">Co-PI and theory lead</span>
-        <p>ALMA Large Program, with joint JWST time, targeting UV-bright galaxies at z&nbsp;&gt;&nbsp;8. It measures how much early star formation is hidden by dust and tests how the first dust forms. PI: S. Schouws.</p>
-        <a class="go" href="https://phoenix.strw.leidenuniv.nl/">PHOENIX website</a>
-      </article>
-      <article class="card">
-        <span class="chip team">Team leadership</span>
-        <h3>ISSI International Team 26-690</h3>
-        <span class="pos">Team leader</span>
-        <p>An international team at the International Space Science Institute in Bern on ISM and dust physics across cosmic time. It brings together cloud-scale simulations and galaxy observations.</p>
-        <a class="go" href="https://www.issibern.ch/scientific-opportunities/international-teams/">ISSI International Teams</a>
+        <p>ALMA Large Program, with joint JWST time, observing 15 UV-bright galaxies at z&nbsp;&gt;&nbsp;8 in [O&nbsp;<span style="font-variant:small-caps">iii</span>]&nbsp;88&nbsp;µm and dust continuum. It measures dust-obscured star formation, tests whether supernovae or grain growth build the first dust, and characterizes the ISM. PI: S. Schouws.</p>
+        </div>
+        <figure class="fig card-fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/alma-programs-luv-z.jpg" width="1895" height="819" loading="lazy" alt="UV luminosity versus redshift showing the ALPINE, REBELS and PHOENIX ALMA Large Program samples from z = 5 to 16"></button>
+        <figcaption>UV luminosity versus redshift for galaxies targeted by three ALMA Large Programs, ALPINE (z&nbsp;≈&nbsp;4.5–6), REBELS (z&nbsp;≈&nbsp;6.5–8) and PHOENIX (z&nbsp;&gt;&nbsp;8), shown against JWST spectroscopic samples. I am a member of all three.</figcaption></figure>
       </article>
       <article class="card">
         <span class="chip th">Theory &amp; simulation</span>
         <h3>Learning the Universe</h3>
         <span class="pos">Co-lead, Synthetic Observations Working Group</span>
-        <p>A Simons Foundation collaboration that uses simulations and machine learning to infer galaxy-formation physics from surveys. My working group turns simulations into mock observations that can be compared directly with data.</p>
-        <a class="go" href="https://learning-the-universe.org/">learning-the-universe.org</a>
+        <p>A Simons Foundation collaboration that combines simulations and machine learning to infer galaxy-formation physics from survey data. The working group I co-lead turns simulations into mock observations that can be compared directly with data.</p>
       </article>
     </div>
-    <div class="figs wide">
-      <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/alma-programs-luv-z.jpg" width="1895" height="819" loading="lazy" alt="UV luminosity versus redshift showing the ALPINE, REBELS and PHOENIX ALMA Large Program samples from z = 5 to 16"></button>
-        <figcaption>Three ALMA Large Programs following dust in UV-bright galaxies across the first billion years: ALPINE (z&nbsp;≈&nbsp;4–6), REBELS (z&nbsp;≈&nbsp;6.5–8) and PHOENIX (z&nbsp;&gt;&nbsp;8). I am part of all three.</figcaption></figure>
-    </div>
     <ul class="roles">
+      <li><span class="yr">2026–</span><span>Team leader, ISSI International Team 26-690 (Bern) on ISM and dust physics across cosmic time</span></li>
       <li><span class="yr">2026</span><span>Organizer, Lorentz Center workshop “From Dust till Dawn”, Leiden</span></li>
       <li><span class="yr">2025–</span><span>External panelist, JWST High-Redshift &amp; Distant Universe proposals and NSF-AAG Galaxy Evolution panel</span></li>
-      <li><span class="yr">2021–</span><span>Member of REBELS, REBELS-IFU, ALPINE-CRISTAL-JWST, CHAMPS, HIDING and AtLAST; co-investigator on more than 30 ALMA, JWST and Roman programmes</span></li>
+      <li><span class="yr">2021–</span><span>Member of REBELS, REBELS-IFU, ALPINE-CRISTAL-JWST, CHAMPS and HIDING; co-investigator on more than 30 ALMA, JWST and Roman programmes</span></li>
       <li><span class="yr">2025</span><span>Scientific Organizing Committee, “Galaxy Origins in the JWST Era”, Toledo</span></li>
     </ul>
   </section>
@@ -375,7 +539,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
       <li><span class="t">Dust temperature in ALMA [C II]-detected high-z galaxies</span><span class="m">Sommovigo et al. 2021, MNRAS 503, 4878 · <a href="https://arxiv.org/abs/2102.08950">arXiv:2102.08950</a></span></li>
       <li><span class="t">Warm dust in high-z galaxies: origin and implications</span><span class="m">Sommovigo et al. 2020, MNRAS 497, 956 · <a href="https://arxiv.org/abs/2004.09528">arXiv:2004.09528</a></span></li>
     </ol>
-    <p class="more">68 refereed papers in total. <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Sommovigo%2C%20L%22&amp;sort=date%20desc">Full list on NASA ADS</a>.</p>
+    <p class="more">68 refereed papers in total. <a href="https://ui.adsabs.harvard.edu/public-libraries/yGCpjRKhTiK-mFa8iOseqA">Full list on NASA ADS</a>.</p>
   </section>
 
   <section id="talks">
@@ -388,7 +552,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
           <li><span class="yr">2026</span><span>MIAPbP program “Continuing the JWST Revolution: Understanding Early Galaxy Formation”, Munich</span></li>
           <li><span class="yr">2026</span><span>“The Drivers of Galaxy Evolution through Cosmic Time”, Florence</span></li>
           <li><span class="yr">2026</span><span>“Charting Cosmic Dawn in Copenhagen 2026”, Copenhagen</span></li>
-          <li><span class="yr">2025</span><span>Simons Collaboration on Learning the Universe Annual Meeting, New York</span></li>
+          <li><span class="yr">2025</span><span>Simons Collaboration on Learning the Universe Annual Meeting, New York: “From simulations to surveys: building realistic mock catalogs for galaxies and the CMB” (with S. Pandey) · <a href="https://www.simonsfoundation.org/video/laura-sommovigo-shivam-pandey-from-simulations-to-surveys-building-realistic-mock-catalogs-for-galaxies-and-the-cmb/">video</a></span></li>
           <li><span class="yr">2025</span><span>Kaba-Kada Conference “Exploring the first billion years of the Universe”, Queensland</span></li>
           <li><span class="yr">2024</span><span>KITP program “Cosmic Origins: The First Billion Years”, Santa Barbara</span></li>
           <li><span class="yr">2024</span><span>IAU General Assembly, IAUS 391, Cape Town</span></li>
@@ -412,7 +576,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
           <li><span class="yr">2022</span><span>Seminar, Max Planck Institute for Extraterrestrial Physics (remote)</span></li>
           <li><span class="yr">2021</span><span>Astronomy Colloquium, University of Melbourne (online)</span></li>
         </ul>
-        <p class="more">Plus 17 contributed conference talks since 2019, listed in my <a href="cv.pdf">CV</a>.</p>
+        <p class="more">Plus 17 contributed conference talks since 2019, listed in my <a href="cv.pdf" target="_blank" rel="noopener">CV</a>.</p>
       </div>
     </div>
   </section>
@@ -423,7 +587,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
       <h2>Full CV and publication list</h2>
       <p class="measure">Appointments, observing programmes, supervision, service, talks and all 68 refereed papers.</p>
     </div>
-    <a class="btn" href="cv.pdf">Download CV (PDF)</a>
+    <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
   </section>
 
   <section id="background">
@@ -441,10 +605,10 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
       <div>
         <h3>Mentoring, code &amp; outreach</h3>
         <ul class="plain">
-          <li>Mentor to PhD and MSc students at Ghent, MPA, NYU, Portsmouth and Florence</li>
+          <li>Co-supervisor and research mentor of students at Ghent, MPA, NYU, Portsmouth and Florence</li>
           <li>Dust modules for the open-source <a href="https://github.com/synthesizer-project/synthesizer">Synthesizer</a> code</li>
           <li>Simons-NSBP Scholars Program mentor (2024)</li>
-          <li>Founder of ISPIRA, about 40 seminars on science careers for teenage girls</li>
+          <li>Founder of <a href="https://orientamento.sns.it/pagina-orientamento/ispira">ISPIRA</a>, about 40 seminars on science careers for teenage girls</li>
         </ul>
       </div>
     </div>
@@ -490,6 +654,14 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   });
   var start=document.getElementById('tab-'+(location.hash||'').slice(1)); if(start) select(start);
 
+  document.querySelectorAll('.more-figs').forEach(function(b){
+    b.addEventListener('click',function(){
+      b.parentNode.querySelectorAll('.fig.extra').forEach(function(f){ f.hidden=false; });
+      b.remove();
+    });
+  });
+
+
   var d=document.getElementById('lightbox'), im=document.getElementById('lightbox-img'), cap=document.getElementById('lightbox-cap');
   if(!d || !d.showModal) return;
   document.querySelectorAll('.zoom').forEach(function(b){
@@ -501,6 +673,23 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   });
   document.getElementById('lightbox-close').addEventListener('click',function(){d.close()});
   d.addEventListener('click',function(e){ if(e.target===d) d.close(); });
+})();
+</script>
+<script>
+(function(){
+  var img=document.getElementById('lf-img'), miss=document.getElementById('lf-missing'); if(!img) return;
+  var AVAILABLE={'7-uniform-mw':1,'7-uniform-stellar':1,'7-turbulent-mw':1,'7-turbulent-stellar':1,'14-uniform-mw':1,'14-uniform-stellar':1,'14-turbulent-mw':1,'14-turbulent-stellar':1};
+  var NAMES={mw:'Milky Way dust',stellar:'large-grain dust'};
+  var st={z:'7',ism:'turbulent',dust:'mw'};
+  function render(){
+    var key=st.z+'-'+st.ism+'-'+st.dust;
+    document.querySelectorAll('.lf-btn').forEach(function(b){ var on=st[b.dataset.k]===b.dataset.v; b.classList.toggle('is-on',on); b.setAttribute('aria-pressed',String(on)); });
+    if(AVAILABLE[key]){
+      img.style.opacity=0;
+      setTimeout(function(){ img.src='figs/p26-lf-z'+key+'.jpg'; img.classList.toggle('z14',st.z==='14'); img.alt='UV and infrared luminosity functions at z ≈ '+st.z+', '+st.ism+' ISM, '+NAMES[st.dust]; img.hidden=false; miss.hidden=true; img.style.opacity=1; },180);
+    } else { img.hidden=true; miss.hidden=false; }
+  }
+  document.querySelectorAll('.lf-btn').forEach(function(b){ b.addEventListener('click',function(){ st[b.dataset.k]=b.dataset.v; render(); }); });
 })();
 </script>
 
