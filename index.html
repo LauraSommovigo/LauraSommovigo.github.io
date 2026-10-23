@@ -90,6 +90,9 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .ax-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;font:400 .7rem/1.35 var(--mono);color:var(--muted)}
 .ax-row span:nth-child(2){text-align:center} .ax-row span:last-child{text-align:right}
 .ax-row.obs{color:var(--fg)}
+.ax-tel{align-items:end}
+.ax-tel .tel{display:inline-block;vertical-align:bottom}
+.ax-tel span:first-child{text-align:left}
 .panel{display:grid;gap:1rem;min-width:0}
 .panel h3{font-size:1.45rem;line-height:1.2}
 .panel .len{font:400 .75rem/1.4 var(--mono);color:var(--dust);letter-spacing:.06em}
@@ -113,7 +116,9 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .td-fig{max-width:42rem}
 .figs.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .figs.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-.figs.gallery .zoom img{aspect-ratio:4/3;object-fit:contain}
+.figs.gallery{align-items:end}
+.figs.cloud-figs{grid-template-columns:minmax(0,.57fr) minmax(0,1fr);align-items:start}
+.cloud-figs .fig:first-child .zoom{margin-top:4.8%}
 .more-figs{justify-self:start;font:500 .85rem var(--body);color:var(--link);background:transparent;border:1px solid var(--rule);border-radius:6px;padding:.45rem .8rem;cursor:pointer}
 .more-figs:hover{border-color:var(--link)}
 .works{list-style:none;padding:0;margin:0;display:grid;gap:1rem;max-width:46rem}
@@ -129,10 +134,10 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .personal p{max-width:40rem}
 .figs.pair{grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:start}
 .fig{margin:0;display:grid;gap:.4rem;min-width:0;align-content:start}
-.zoom{all:unset;box-sizing:border-box;cursor:zoom-in;display:block;background:#fff;border:1px solid var(--rule);border-radius:6px;padding:.35rem;line-height:0}
+.zoom{all:unset;box-sizing:border-box;cursor:zoom-in;display:block;background:#fff;border-radius:4px;line-height:0;overflow:hidden}
 .zoom img{width:100%;height:auto;display:block;border-radius:3px}
 .figs.three .zoom img{aspect-ratio:3/2;object-fit:contain}
-.zoom:hover{border-color:var(--muted)}
+.zoom:hover{box-shadow:0 0 0 2px var(--rule)}
 .fig figcaption{font-size:.8rem;line-height:1.45;color:var(--muted)}
 .fig figcaption a{font-family:var(--mono);font-size:.74rem;white-space:nowrap}
 
@@ -194,7 +199,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .pipe-lab{font-family:var(--display);font-size:1rem;line-height:1.2}
 .pipe-down{display:flex;align-items:center;justify-content:center;gap:.5rem;color:var(--dust);font:500 .72rem/1.3 var(--mono);letter-spacing:.04em;padding:.35rem 0}
 .pipe-down span{color:var(--dust)}
-.pipe-final,.pipe-final span{color:var(--fg);font-weight:600}
+.pipe-final,.pipe-final span{color:var(--uv);font-weight:600}
 .pipe-sep{align-self:center;justify-self:center;color:var(--muted);font:300 1.4rem/1 var(--body)}
 .pipe-head.uv .pipe-scale{color:var(--uv)} .pipe-head.ir .pipe-scale{color:var(--dust)}
 .pipe-out{padding-top:.1rem;max-width:40rem;margin-inline:auto;width:100%}
@@ -340,6 +345,17 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
             <div class="ax-row"><span>UV–optical<br>0.1–1&nbsp;µm · attenuation</span><span>mid-IR<br>∼3–35&nbsp;µm</span><span>far-IR<br>∼50–500&nbsp;µm · dust emission</span></div>
             <span class="ax-h">Observed at z&nbsp;=&nbsp;6</span>
             <div class="ax-row obs"><span>0.7–7&nbsp;µm<br>JWST; HST to 1.7&nbsp;µm</span><span>∼24–235&nbsp;µm<br>PRIMA</span><span>∼0.35–3.5&nbsp;mm<br>ALMA; NOEMA ≳1&nbsp;mm</span></div>
+            <span></span><div class="ax-row ax-tel" aria-hidden="false"><span><svg class="tel" viewBox="0 0 60 50" width="46" height="38" role="img" aria-label="JWST">
+<path d="M6 44 L54 44 L48 40 L12 40 Z" fill="#9fb3d9" opacity=".55"/><path d="M9 47 L51 47 L54 44 L6 44 Z" fill="#7d93c4" opacity=".55"/>
+<g fill="#e6b84a" stroke="#a87d1e" stroke-width=".5"><polygon points="26.06,11.32 22.73,13.25 19.39,11.32 19.39,7.47 22.73,5.55 26.06,7.47"/><polygon points="33.33,11.32 30.00,13.25 26.67,11.32 26.67,7.47 30.00,5.55 33.33,7.47"/><polygon points="40.61,11.32 37.27,13.25 33.94,11.32 33.94,7.47 37.27,5.55 40.61,7.47"/><polygon points="22.42,17.62 19.09,19.55 15.75,17.62 15.75,13.77 19.09,11.85 22.42,13.77"/><polygon points="29.70,17.62 26.36,19.55 23.03,17.62 23.03,13.77 26.36,11.85 29.70,13.77"/><polygon points="36.97,17.62 33.64,19.55 30.30,17.62 30.30,13.77 33.64,11.85 36.97,13.77"/><polygon points="44.25,17.62 40.91,19.55 37.58,17.62 37.58,13.77 40.91,11.85 44.25,13.77"/><polygon points="18.78,23.93 15.45,25.85 12.12,23.93 12.12,20.07 15.45,18.15 18.78,20.07"/><polygon points="26.06,23.93 22.73,25.85 19.39,23.93 19.39,20.07 22.73,18.15 26.06,20.07"/><polygon points="40.61,23.93 37.27,25.85 33.94,23.93 33.94,20.07 37.27,18.15 40.61,20.07"/><polygon points="47.88,23.93 44.55,25.85 41.22,23.93 41.22,20.07 44.55,18.15 47.88,20.07"/><polygon points="22.42,30.23 19.09,32.15 15.75,30.23 15.75,26.38 19.09,24.45 22.42,26.38"/><polygon points="29.70,30.23 26.36,32.15 23.03,30.23 23.03,26.38 26.36,24.45 29.70,26.38"/><polygon points="36.97,30.23 33.64,32.15 30.30,30.23 30.30,26.38 33.64,24.45 36.97,26.38"/><polygon points="44.25,30.23 40.91,32.15 37.58,30.23 37.58,26.38 40.91,24.45 44.25,26.38"/><polygon points="26.06,36.52 22.73,38.45 19.39,36.52 19.39,32.68 22.73,30.75 26.06,32.67"/><polygon points="33.33,36.52 30.00,38.45 26.67,36.52 26.67,32.68 30.00,30.75 33.33,32.67"/><polygon points="40.61,36.52 37.27,38.45 33.94,36.52 33.94,32.68 37.27,30.75 40.61,32.67"/></g>
+<path d="M30 22 L30 4 M30 4 L14 14 M30 4 L46 14" stroke="#5a6070" stroke-width=".9" fill="none"/><circle cx="30" cy="4" r="1.6" fill="#5a6070"/>
+</svg></span><span></span><span><svg class="tel" viewBox="0 0 60 50" width="46" height="38" role="img" aria-label="ALMA antenna">
+<path d="M9 18 Q30 40 51 18 Q30 25 9 18 Z" fill="#e9ecf2" stroke="#7a8296" stroke-width="1"/>
+<path d="M30 27 L30 10 M30 10 L22 21 M30 10 L38 21" stroke="#7a8296" stroke-width=".9" fill="none"/><circle cx="30" cy="10" r="1.3" fill="#7a8296"/>
+<path d="M26 30 H34 L33 34 H27 Z" fill="#c9ced9" stroke="#7a8296" stroke-width=".8"/>
+<path d="M25 34 H35 L37 45 H23 Z" fill="#e9ecf2" stroke="#7a8296" stroke-width=".9"/>
+<path d="M18 47 H42" stroke="#b0612a" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+</svg></span></div>
           </div>
         </div>
 
@@ -362,7 +378,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
                 <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-ism-pdf.jpg" width="596" height="503" loading="lazy" alt="Distribution of dust surface density for Mach numbers 10 and 100, compared with galaxy-to-galaxy scatter"></button>
                 <p class="pipe-cap" style="grid-column:3;grid-row:3">Turbulence broadens the distribution of dust columns (Mach 10 vs 100).</p>
               </div>
-              <div class="pipe-down" aria-hidden="true"><svg viewBox="0 0 26 46" width="20" height="36"><path d="M13.2 2 C 11.4 10, 15.6 17, 12.8 26 C 11.6 31, 13.4 36, 13 41" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 33.5 C 9 36.5, 11 39, 13 42.5 C 15.2 38.8, 17.4 36.4, 19.8 34.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>radiative transfer</span></div>
+              <div class="pipe-down" aria-hidden="true"><svg class="blk" viewBox="0 0 40 46" width="30" height="34" aria-hidden="true"><path d="M13 2 H27 V24 H37 L20 44 L3 24 H13 Z" fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"/></svg><span>radiative transfer</span></div>
               <div class="pipe-row pipe-out" style="grid-template-columns:2.409fr 2rem 1.403fr">
                 <div class="pipe-head uv" style="grid-column:1;grid-row:1"><span class="pipe-scale">rest-frame UV–optical</span><span class="pipe-lab">Attenuation curve</span></div>
                 <button type="button" class="zoom pipe-img" style="grid-column:1;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-galaxy-attenuation.jpg" width="1277" height="530" loading="lazy" alt="Attenuation curves for Milky Way and stellar dust in point-source and mixed star-dust geometries"></button>
@@ -371,7 +387,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
                 <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-sed-z7.jpg" width="783" height="558" loading="lazy" alt="Predicted greybody dust SEDs at z = 7 for Milky Way and stellar dust and Mach numbers 10 and 100, compared with REBELS ALMA measurements (Inami+22)"></button>
                 <p class="pipe-cap" style="grid-column:3;grid-row:3">Dust emission is optically thin, so turbulence barely changes the infrared SED; grain type does.</p>
               </div>
-              <div class="pipe-down pipe-final" aria-hidden="true"><svg viewBox="0 0 26 46" width="20" height="36"><path d="M13.2 2 C 11.4 10, 15.6 17, 12.8 26 C 11.6 31, 13.4 36, 13 41" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 33.5 C 9 36.5, 11 39, 13 42.5 C 15.2 38.8, 17.4 36.4, 19.8 34.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>galaxy population implications</span></div>
+              <div class="pipe-down pipe-final" aria-hidden="true"><svg class="blk" viewBox="0 0 40 46" width="30" height="34" aria-hidden="true"><path d="M13 2 H27 V24 H37 L20 44 L3 24 H13 Z" fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"/></svg><span>galaxy population implications</span></div>
               <div class="pipe-pop">
                 <div class="lf-controls">
                   <div class="lf-toggle" role="group" aria-label="Redshift">
@@ -414,11 +430,11 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
             </ul></div>
           </div>
           <div class="figs gallery">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-attenuation-corner.jpg" width="1217" height="832" loading="lazy" alt="Corner plot of best-fit attenuation-law parameters for Milky Way, SMC and stellar dust, with an inset of median attenuation curves"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-attenuation-corner.jpg" width="1204" height="830" loading="lazy" alt="Corner plot of best-fit attenuation-law parameters for Milky Way, SMC and stellar dust, with an inset of median attenuation curves"></button>
               <figcaption>Best-fit parameters of the new attenuation curve for TNG50 and TNG100 galaxies. Scatter within one colour reflects galaxy properties and viewing angle; offsets between colours reflect the grain mixture (Milky Way, SMC, large-grain “stellar”). Inset: median attenuation curves. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-dust-to-stellar-mass.jpg" width="1000" height="989" loading="lazy" alt="Dust-to-stellar mass of REBELS and ALPINE galaxies compared with dust production models"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-dust-to-stellar-mass.jpg" width="958" height="974" loading="lazy" alt="Dust-to-stellar mass of REBELS and ALPINE galaxies compared with dust production models"></button>
               <figcaption>Dust versus stellar mass for REBELS and ALPINE galaxies, compared with supernova dust-production scenarios and galaxy models. <a href="https://arxiv.org/abs/2210.09312">Sommovigo+22b</a>. Updated with REBELS-IFU in <a href="https://arxiv.org/abs/2501.10508">Algera+26</a>.</figcaption></figure>
-            <figure class="fig extra" hidden><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-predicted-curves.jpg" width="1022" height="1958" loading="lazy" alt="Predicted attenuation curves binned by A_V for Milky Way, SMC and stellar dust"></button>
+            <figure class="fig extra" hidden><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/grains-predicted-curves.jpg" width="1000" height="1927" loading="lazy" alt="Predicted attenuation curves binned by A_V for Milky Way, SMC and stellar dust"></button>
               <figcaption>Attenuation curves predicted from galaxy properties with the new scaling relations, in bins of A<sub>V</sub>, for each grain mixture. <a href="https://arxiv.org/abs/2606.10027">Sommovigo+26b</a></figcaption></figure>
           </div>
           <button type="button" class="more-figs">Show 1 more figure</button>
@@ -437,10 +453,10 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
               <li><span class="pq">Why is dust warmer in early galaxies?</span> The analytical model predicts dust temperatures above 60&nbsp;K in compact clouds at z&nbsp;∼&nbsp;8, consistent with temperatures since measured in z&nbsp;∼&nbsp;8 galaxies. <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></li>
             </ul></div>
           </div>
-          <div class="figs gallery">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="451" height="448" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
+          <div class="figs gallery cloud-figs">
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="447" height="447" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
               <figcaption>Dust surface density in a simulated turbulent cloud; dots mark young stellar sources. <a href="https://arxiv.org/abs/2407.01662">Di Mascia+25</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="773" height="534" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="767" height="527" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
               <figcaption>Spectrum of a simulated cloud from SKIRT radiative transfer (blue; intrinsic stellar spectrum dotted) compared with a 1D analytical model for a homogeneous cloud (green) and a cloud shaped by radiation pressure (magenta). <a href="https://arxiv.org/abs/2407.01662">Di Mascia+25</a>; model from <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></figcaption></figure>
           </div>
         </div>
@@ -460,9 +476,9 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
             </ul></div>
           </div>
           <div class="figs gallery">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-attenuation-tng50.jpg" width="1400" height="782" loading="lazy" alt="A TNG50 galaxy imaged at 2175 Å and in g, r, z bands from four viewing angles, with the matching attenuation curves"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-attenuation-tng50.jpg" width="1396" height="782" loading="lazy" alt="A TNG50 galaxy imaged at 2175 Å and in g, r, z bands from four viewing angles, with the matching attenuation curves"></button>
               <figcaption>One TNG50 galaxy viewed from four angles (A–D): images at 2175&nbsp;Å and in the g, r and z bands, and the corresponding attenuation curves. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-multitemperature-seds.jpg" width="2000" height="1246" loading="lazy" alt="Dust temperature distributions, the resulting infrared SEDs across ALMA bands, and cumulative dust mass versus temperature, for different mean temperatures, widths and skewness"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/galaxy-multitemperature-seds.jpg" width="1988" height="1235" loading="lazy" alt="Dust temperature distributions, the resulting infrared SEDs across ALMA bands, and cumulative dust mass versus temperature, for different mean temperatures, widths and skewness"></button>
               <figcaption>Dust temperature distributions (left), the resulting infrared SEDs with ALMA bands 3–10 shaded (middle), and cumulative dust mass versus temperature (right), varying the mean, width and skewness of the distribution. <a href="https://arxiv.org/abs/2505.20105">Sommovigo &amp; Algera 25</a></figcaption></figure>
           </div>
         </div>
@@ -484,7 +500,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
 
           </div>
           <div class="figs wide td-fig">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-dust-temperature.jpg" width="1654" height="931" loading="lazy" alt="Dust temperature versus redshift for star-forming galaxies from z = 0 to 9, with REBELS and ALPINE measurements and a physical model curve"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cosmic-dust-temperature.jpg" width="1649" height="874" loading="lazy" alt="Dust temperature versus redshift for star-forming galaxies from z = 0 to 9, with REBELS and ALPINE measurements and a physical model curve"></button>
               <figcaption>Dust temperature versus redshift: REBELS and ALPINE galaxies (from my [C<span style="font-variant:small-caps">ii</span>]-based method) and literature samples, with my physical model (dashed) and its predicted scatter (shaded). <a href="https://arxiv.org/abs/2202.01227">Sommovigo+22a</a></figcaption></figure>
           </div>
           
@@ -507,7 +523,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
         <span class="pos">Co-PI and theory lead</span>
         <p>ALMA Large Program, with joint JWST time, observing 15 UV-bright galaxies at z&nbsp;&gt;&nbsp;8 in [O&nbsp;<span style="font-variant:small-caps">iii</span>]&nbsp;88&nbsp;µm and dust continuum. It measures dust-obscured star formation, tests whether supernovae or grain growth build the first dust, and characterizes the ISM. PI: S. Schouws.</p>
         </div>
-        <figure class="fig card-fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/alma-programs-luv-z.jpg" width="1895" height="819" loading="lazy" alt="UV luminosity versus redshift showing the ALPINE, REBELS and PHOENIX ALMA Large Program samples from z = 5 to 16"></button>
+        <figure class="fig card-fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/alma-programs-luv-z.jpg" width="1847" height="801" loading="lazy" alt="UV luminosity versus redshift showing the ALPINE, REBELS and PHOENIX ALMA Large Program samples from z = 5 to 16"></button>
         <figcaption>UV luminosity versus redshift for galaxies targeted by three ALMA Large Programs, ALPINE (z&nbsp;≈&nbsp;4.5–6), REBELS (z&nbsp;≈&nbsp;6.5–8) and PHOENIX (z&nbsp;&gt;&nbsp;8), shown against JWST spectroscopic samples. I am a member of all three.</figcaption></figure>
       </article>
       <article class="card">
