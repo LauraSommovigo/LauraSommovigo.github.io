@@ -69,7 +69,6 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 /* explorer */
 .explorer{display:grid;grid-template-columns:15rem minmax(0,1fr);gap:0;border:1px solid var(--rule);border-radius:10px;background:var(--surface);margin-top:.75rem;overflow:hidden}
 .ladder{display:grid;align-content:start;gap:.25rem;padding:1rem .75rem;border-right:1px solid var(--rule);position:relative}
-.tab + .tab::before{content:"";position:absolute;left:calc(.6rem + 1.75rem - 1px);bottom:50%;height:calc(100% + .25rem);width:2px;background:linear-gradient(var(--uv),var(--dust));opacity:.45}
 .tab .icon,.tab .ov{position:relative;z-index:1}
 .tab{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:3.5rem 1fr;align-items:center;gap:.8rem;padding:.6rem;border-radius:8px;position:relative}
 .tab:hover{background:var(--sel)}
@@ -80,6 +79,11 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .tab .tlen{font:400 .7rem/1.4 var(--mono);color:var(--dust);letter-spacing:.06em;display:block;margin-top:.1rem}
 .tab-overview .ov{width:3.5rem;height:3.5rem;border-radius:50%;display:grid;place-items:center;font:500 .62rem/1.15 var(--mono);letter-spacing:.06em;color:var(--fg);border:1px dashed var(--muted);text-align:center;background:var(--surface)}
 .tab-overview[aria-selected="true"] .ov{border:2px solid var(--dust)}
+.zoomlines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.zoomlines .cone{fill:var(--dust);fill-opacity:.10;stroke:none}
+.zoomlines .edge{stroke:var(--dust);stroke-opacity:.7;stroke-width:1.1;fill:none}
+.zoomlines .box{fill:none;stroke:#fff;stroke-width:1.4}
+.zoomlines .box2{fill:none;stroke:var(--dust);stroke-width:.8}
 .ladder-note{font:400 .7rem/1.5 var(--mono);color:var(--muted);padding:.75rem .6rem 0;letter-spacing:.04em}
 
 .panels{min-width:0;padding:1.4rem 1.6rem 1.6rem;display:grid;gap:1.1rem;align-content:start}
@@ -164,6 +168,23 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .slides{position:relative;background:#fff;border:1px solid var(--rule);border-radius:6px;padding:.4rem;aspect-ratio:1500/982;max-width:100%}
 .slides .slide{position:absolute;inset:.4rem;width:calc(100% - .8rem);height:calc(100% - .8rem);object-fit:contain;opacity:0;transition:opacity .9s ease}
 .slides .slide.is-on{opacity:1}
+@media (max-width:560px){
+  body .explorer{margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));border-radius:0;border-inline:0}
+  body .panels{padding:1.1rem max(16px, env(safe-area-inset-left, 0px)) 1.3rem}
+  body .lf-grid{grid-template-columns:1fr}
+  body .merge svg{display:none}
+  body .merge{height:58px}
+  body .merge-pill{top:4px}
+  body .merge-head{top:36px}
+  body .figs.cloud-figs{grid-template-columns:1fr}
+  body .cloud-figs .fig:first-child{max-width:75%}
+  body .cloud-figs .fig:first-child .zoom{margin-top:0}
+  body .lf-legend{font-size:.8rem}
+
+}
+@media (orientation:landscape) and (max-height:500px){
+  .hero{height:110px}
+}
 @media (prefers-reduced-motion:reduce){.slides .slide{transition:none}}
 .lead-cards > .card{grid-column:1 / -1}
 .card-wide{grid-column:1 / -1;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:1.25rem 1.75rem;align-items:start}
@@ -194,9 +215,6 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .pipe-arrow{align-self:center;justify-self:center;color:var(--muted);line-height:0}
 .pipe-scale{font:400 .66rem/1.3 var(--mono);letter-spacing:.06em;color:var(--dust)}
 .pipe-lab{font-family:var(--display);font-size:1rem;line-height:1.2}
-.pipe-down{display:flex;align-items:center;justify-content:center;gap:.5rem;color:var(--dust);font:500 .72rem/1.3 var(--mono);letter-spacing:.04em;padding:.35rem 0}
-.pipe-down span{color:var(--dust)}
-.pipe-final,.pipe-final span{color:var(--uv);font-weight:600}
 .pipe-sep{align-self:center;justify-self:center;color:var(--muted);font:300 1.4rem/1 var(--body)}
 .pipe-head.uv .pipe-scale{color:var(--uv)} .pipe-head.ir .pipe-scale{color:var(--dust)}
 .pipe-out{padding-top:.1rem;max-width:40rem;margin-inline:auto;width:100%}
@@ -209,10 +227,27 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .lf-toggle{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
 .lf-k{font:500 .68rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:.15rem}
 .lf-btn{color:var(--fg)}
-#lf-img{position:static;opacity:1;transition:opacity .18s ease;width:100%;height:auto;display:block;margin:0 auto;border-radius:4px}
-#lf-img.z14{width:62.8%}
-.lf-missing{position:absolute;inset:0;display:grid;place-items:center;margin:0;font:500 .9rem var(--body);color:#5a6070}
 .lf-slides{aspect-ratio:auto;border:0;padding:0;background:transparent;text-align:center}
+.pipe-title{margin:.5rem 0 0;font-family:var(--display);font-weight:400;font-size:1.25rem}
+.pipe-lead{font-size:.95rem;max-width:44rem;color:var(--fg)}
+.merge{position:relative;height:84px;max-width:36rem;margin:0 auto;width:100%;color:var(--dust)}
+.merge.m-pop{max-width:40rem;color:var(--uv)}
+.merge svg{position:absolute;left:0;top:0;width:100%;height:62px;overflow:visible}
+.merge path{fill:none;stroke:currentColor;stroke-opacity:.55;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.merge-head{position:absolute;left:50%;top:58px;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:11px solid currentColor;opacity:.75}
+.merge-pill{position:absolute;left:50%;top:22px;transform:translateX(-50%);white-space:nowrap;font:500 .74rem/1 var(--mono);letter-spacing:.03em;padding:.4rem .7rem;border-radius:999px;background:var(--surface);border:1px solid currentColor}
+.lf-legend{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;font-size:.85rem;line-height:1.4;color:var(--fg);margin-top:.4rem}
+.lf-legend .lg{display:inline-flex;align-items:center;gap:.4rem}
+.lf-legend svg{width:2.1rem;height:.6rem;flex:none}
+.lg-data{flex-basis:100%;color:var(--muted);font-size:.8rem}
+.pipe-sep svg{display:block}
+.lf-state{font:500 .78rem/1.3 var(--mono);color:var(--fg);margin:.3rem 0 0;letter-spacing:.02em}
+.lf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}
+.lf-cell{margin:0;display:grid;gap:.3rem;min-width:0}
+.lf-h{font:500 .68rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.lf-h.uv{color:var(--uv)} .lf-h.ir{color:var(--dust)}
+.lf-zoom img{width:100%;height:auto;display:block}
+.lf-noir{margin:0;padding:1rem;border:1px dashed var(--rule);border-radius:6px;font-size:.85rem;color:var(--muted);line-height:1.5}
 .lead-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem 1.2rem;display:grid;gap:.55rem;align-content:start;min-width:0}
 .chip{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.35rem .5rem;border-radius:4px;border:1px solid currentColor}
@@ -262,7 +297,6 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   .talks{grid-template-columns:1fr;gap:1.75rem}
   .explorer{grid-template-columns:1fr}
   .ladder{grid-template-columns:repeat(5,minmax(0,1fr));border-right:0;border-bottom:1px solid var(--rule);padding:.75rem .5rem}
-  .tab + .tab::before{display:none}
   .tab{grid-template-columns:1fr;justify-items:center;text-align:center;gap:.35rem;padding:.4rem .15rem}
   .tab .tname{font-size:.82rem}
   .tab .tlen{font-size:.62rem}
@@ -328,9 +362,10 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
       <div class="ladder" role="tablist" aria-orientation="vertical" aria-label="Physical scales">
         <button class="tab tab-overview" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true"><span class="ov">ALL<br>SCALES</span><span><span class="tname">The full picture</span><span class="tlen">grains → galaxies</span></span></button>
         <button class="tab" role="tab" id="tab-grains" aria-controls="panel-grains" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-grain.jpg" alt="" width="320" height="320"><span><span class="tname">Dust grains</span><span class="tlen">microns</span></span></button>
-        <button class="tab" role="tab" id="tab-clouds" aria-controls="panel-clouds" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-cloud.jpg" alt="" width="320" height="320"><span><span class="tname">Star-forming clouds</span><span class="tlen">parsecs</span></span></button>
-        <button class="tab" role="tab" id="tab-galaxies" aria-controls="panel-galaxies" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-galaxy.jpg" alt="" width="320" height="320"><span><span class="tname">Galaxies</span><span class="tlen">kiloparsecs</span></span></button>
-        <button class="tab" role="tab" id="tab-cosmic" aria-controls="panel-cosmic" aria-selected="false" tabindex="-1"><img class="icon" src="figs/icon-cosmic.jpg" alt="" width="320" height="320"><span><span class="tname">Galaxy populations</span><span class="tlen">megaparsecs</span></span></button>
+        <button class="tab" role="tab" id="tab-clouds" aria-controls="panel-clouds" aria-selected="false" tabindex="-1"><img class="icon" data-zoom="0.45,0.40" data-to="tab-grains" src="figs/icon-cloud.jpg" alt="" width="320" height="320"><span><span class="tname">Star-forming clouds</span><span class="tlen">parsecs</span></span></button>
+        <button class="tab" role="tab" id="tab-galaxies" aria-controls="panel-galaxies" aria-selected="false" tabindex="-1"><img class="icon" data-zoom="0.52,0.58" data-to="tab-clouds" src="figs/icon-galaxy.jpg" alt="" width="320" height="320"><span><span class="tname">Galaxies</span><span class="tlen">kiloparsecs</span></span></button>
+        <button class="tab" role="tab" id="tab-cosmic" aria-controls="panel-cosmic" aria-selected="false" tabindex="-1"><img class="icon" data-zoom="0.42,0.50" data-to="tab-galaxies" src="figs/icon-cosmic.jpg" alt="" width="320" height="320"><span><span class="tname">Galaxy populations</span><span class="tlen">megaparsecs</span></span></button>
+        <svg class="zoomlines" aria-hidden="true"></svg>
         <p class="ladder-note">Select a scale to see the projects</p>
       </div>
 
@@ -354,17 +389,19 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
             <div class="ir"><h4>Rest-frame far-infrared</h4>
               <ul class="proj"><li>The absorbed energy is re-emitted as <strong>thermal dust emission</strong>. The far-infrared continuum constrains dust temperature, dust mass and dust-obscured star formation.</li></ul></div>
           </div>
+            <h4 class="pipe-title">Putting it together</h4>
+            <p class="pipe-lead">In <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a>, grain properties and ISM structure set, through radiative transfer, both the UV attenuation and the infrared emission of each galaxy. Galaxy populations then test the combination against the observed UV and infrared luminosity functions.</p>
             <figure class="fig pipe" id="pipe">
               <div class="pipe-row pipe-in" style="grid-template-columns:1.026fr 2rem 1.185fr">
                 <div class="pipe-head " style="grid-column:1;grid-row:1"><span class="pipe-scale">microns · input</span><span class="pipe-lab">Grain properties</span></div>
                 <button type="button" class="zoom pipe-img" style="grid-column:1;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-grains-kappa.jpg" width="955" height="931" loading="lazy" alt="Dust opacity versus wavelength for Milky Way and large-grain stellar dust, with grain-size distributions in the inset"></button>
-                <p class="pipe-cap" style="grid-column:1;grid-row:3">Milky Way vs large-grain (“stellar”) dust: the opacity at 1500&nbsp;Å differs by ∼13×.</p>
-                <span class="pipe-sep" style="grid-column:2;grid-row:2" aria-hidden="true">+</span>
+                <p class="pipe-cap" style="grid-column:1;grid-row:3">Milky Way vs large-grain (“stellar”) dust: UV opacities differ by more than a dex. Inset: grain-size distributions.</p>
+                <span class="pipe-sep" style="grid-column:2;grid-row:2" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="16" cy="16" r="15" fill="var(--sel)" stroke="var(--rule)"/><path d="M16 9 V23 M9 16 H23" stroke="var(--fg)" stroke-width="2.2" stroke-linecap="round"/></svg></span>
                 <div class="pipe-head " style="grid-column:3;grid-row:1"><span class="pipe-scale">parsecs · input</span><span class="pipe-lab">ISM structure</span></div>
                 <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-ism-pdf.jpg" width="596" height="503" loading="lazy" alt="Distribution of dust surface density for Mach numbers 10 and 100, compared with galaxy-to-galaxy scatter"></button>
-                <p class="pipe-cap" style="grid-column:3;grid-row:3">Turbulence broadens the distribution of dust columns (Mach 10 vs 100).</p>
+                <p class="pipe-cap" style="grid-column:3;grid-row:3">Turbulence broadens the distribution of dust surface density (Mach 10 vs 100).</p>
               </div>
-              <div class="pipe-down" aria-hidden="true"><svg class="blk" viewBox="0 0 40 46" width="30" height="34" aria-hidden="true"><path d="M13 2 H27 V24 H37 L20 44 L3 24 H13 Z" fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"/></svg><span>radiative transfer</span></div>
+              <div class="merge m-rt" aria-hidden="true"><svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M24 0 C 24 34, 50 22, 50 52" /><path d="M76 0 C 76 34, 50 22, 50 52" /></svg><span class="merge-head"></span><span class="merge-pill">radiative transfer</span></div>
               <div class="pipe-row pipe-out" style="grid-template-columns:2.409fr 2rem 1.403fr">
                 <div class="pipe-head uv" style="grid-column:1;grid-row:1"><span class="pipe-scale">rest-frame UV–optical</span><span class="pipe-lab">Attenuation curve</span></div>
                 <button type="button" class="zoom pipe-img" style="grid-column:1;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-galaxy-attenuation.jpg" width="1277" height="530" loading="lazy" alt="Attenuation curves for Milky Way and stellar dust in point-source and mixed star-dust geometries"></button>
@@ -373,7 +410,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
                 <button type="button" class="zoom pipe-img" style="grid-column:3;grid-row:2" aria-label="Enlarge figure"><img src="figs/p26-sed-z7.jpg" width="783" height="558" loading="lazy" alt="Predicted greybody dust SEDs at z = 7 for Milky Way and stellar dust and Mach numbers 10 and 100, compared with REBELS ALMA measurements (Inami+22)"></button>
                 <p class="pipe-cap" style="grid-column:3;grid-row:3">Dust emission is optically thin, so turbulence barely changes the infrared SED; grain type does.</p>
               </div>
-              <div class="pipe-down pipe-final" aria-hidden="true"><svg class="blk" viewBox="0 0 40 46" width="30" height="34" aria-hidden="true"><path d="M13 2 H27 V24 H37 L20 44 L3 24 H13 Z" fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"/></svg><span>galaxy population implications</span></div>
+              <div class="merge m-pop" aria-hidden="true"><svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M33 0 C 33 34, 50 22, 50 52" /><path d="M80 0 C 80 34, 50 22, 50 52" /></svg><span class="merge-head"></span><span class="merge-pill">galaxy population implications</span></div>
               <div class="pipe-pop">
                 <div class="lf-controls">
                   <div class="lf-toggle" role="group" aria-label="Redshift">
@@ -392,12 +429,22 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
                     <button type="button" class="lf-btn st" data-k="dust" data-v="stellar" aria-pressed="false">Large grains</button>
                   </div>
                 </div>
-                <div class="slides lf-slides" id="lf-slides" aria-live="polite">
-                  <img class="slide is-on" id="lf-img" src="figs/p26-lf-z7-turbulent-mw.jpg" width="1800" height="913" alt="UV and infrared luminosity functions at z ≈ 7, turbulent ISM, Milky Way dust">
-                  <p class="lf-missing" id="lf-missing" hidden>Plot for this combination to come.</p>
+                <p class="lf-state" id="lf-state">z ≈ 7 · turbulent ISM · Milky Way dust grains</p>
+                <div class="lf-grid" id="lf-slides" aria-live="polite">
+                  <figure class="lf-cell"><span class="lf-h uv">UV luminosity function</span><button type="button" class="zoom lf-zoom" aria-label="Enlarge figure"><img id="lf-uv" src="figs/p26-lf-z7-turbulent-mw-uv.jpg" width="1000" height="812" alt="UV luminosity function at z ≈ 7, turbulent ISM, Milky Way dust grains"></button></figure>
+                  <figure class="lf-cell"><span class="lf-h ir">Infrared luminosity function</span><button type="button" class="zoom lf-zoom" id="lf-ir-btn" aria-label="Enlarge figure"><img id="lf-ir" src="figs/p26-lf-z7-turbulent-mw-ir.jpg" width="1000" height="812" alt="Infrared luminosity function at z ≈ 7, turbulent ISM, Milky Way dust grains"></button>
+                    <p class="lf-noir" id="lf-noir" hidden>No infrared luminosity function exists yet at z&nbsp;≈&nbsp;14. ALMA programmes such as PHOENIX are pushing dust-continuum constraints into this regime.</p></figure>
+                </div>
+<div class="lf-legend" id="lf-legend">
+                  <span class="lg"><svg viewBox="0 0 34 8"><path d="M1 4 H33" stroke="var(--fg)" stroke-width="2.4" stroke-dasharray="8 3 2 3"/></svg><span>y<sub>d</sub> = 0.02&nbsp;M<sub>⊙</sub> (low dust yield)</span></span>
+                  <span class="lg"><svg viewBox="0 0 34 8"><path d="M1 4 H33" stroke="var(--fg)" stroke-width="2.6" stroke-dasharray="2.5 3"/></svg><span>y<sub>d</sub> = 0.3&nbsp;M<sub>⊙</sub> (high dust yield)</span></span>
+                  <span class="lg"><svg viewBox="0 0 34 8"><path d="M1 4 H33" stroke="#7b2a78" stroke-width="3.4"/></svg><span>ε<sub>⋆</sub> = 10%</span></span>
+                  <span class="lg"><svg viewBox="0 0 34 8"><path d="M1 4 H33" stroke="#f07f2a" stroke-width="3.4"/></svg><span>ε<sub>⋆</sub> = 20%</span></span>
+                  <span class="lg lg-data" data-z="7">■ grey: UV LF, Bouwens+21 · ■ red: IR LF, REBELS (Barrufet+23)</span>
+                  <span class="lg lg-data" data-z="14" hidden>UV LF data: ◇ Casey+23 · × CEERS · ● Donnan+24 · ◆ McLeod+23 · ★ Whitler+25 · + Robertson+24</span>
                 </div>
               </div>
-              <figcaption>How the scales combine in a population-level test. Grain properties and ISM structure set the attenuation of each galaxy; the resulting UV and infrared luminosity functions are compared with data for different star-formation efficiencies (ε<sub>⋆</sub>) and supernova dust yields (y<sub>d</sub>). Use the switches to change one ingredient at a time. At z&nbsp;≈&nbsp;7, a turbulent ISM with Milky Way dust and high dust yields matches both the UV and infrared data, while a uniform ISM cannot. At z&nbsp;≈&nbsp;14, the brighter UV luminosity function measurements favour low dust yields and/or a higher star-formation efficiency, though current data still span 1–2&nbsp;dex. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a> · <a href="https://github.com/LauraSommovigo/dust_JWST_highz">Code on GitHub</a></figcaption>
+              <figcaption>Use the switches to change one ingredient at a time. At z&nbsp;≈&nbsp;7, a turbulent ISM with Milky Way dust grains and high dust yields matches both the UV and infrared data, while a uniform ISM cannot. At z&nbsp;≈&nbsp;14, the brighter UV luminosity function measurements favour low dust yields and/or a higher star-formation efficiency, though current data still span 1–2&nbsp;dex. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a> · <a href="https://github.com/LauraSommovigo/dust_JWST_highz">Code on GitHub</a></figcaption>
             </figure>
           <p class="next">Methods: analytical models, radiative transfer, cosmological simulations, synthetic observations and interpretable machine learning, tested against multi-wavelength observations.</p>
         </div>
@@ -554,7 +601,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
           <li><span class="yr">2026</span><span>MIAPbP program “Continuing the JWST Revolution: Understanding Early Galaxy Formation”, Munich</span></li>
           <li><span class="yr">2026</span><span>“The Drivers of Galaxy Evolution through Cosmic Time”, Florence</span></li>
           <li><span class="yr">2026</span><span>“Charting Cosmic Dawn in Copenhagen 2026”, Copenhagen</span></li>
-          <li><span class="yr">2025</span><span>Simons Collaboration on Learning the Universe Annual Meeting, New York: “From simulations to surveys: building realistic mock catalogs for galaxies and the CMB” (with S. Pandey) · <a href="https://www.simonsfoundation.org/video/laura-sommovigo-shivam-pandey-from-simulations-to-surveys-building-realistic-mock-catalogs-for-galaxies-and-the-cmb/">video</a></span></li>
+          <li><span class="yr">2025</span><span>Simons Collaboration on Learning the Universe Annual Meeting, New York: “From simulations to surveys: building realistic mock catalogs for galaxies and the CMB” (with S. Pandey) · <a href="https://youtu.be/mbVgJsNbAoc">video</a></span></li>
           <li><span class="yr">2025</span><span>Kaba-Kada Conference “Exploring the first billion years of the Universe”, Queensland</span></li>
           <li><span class="yr">2024</span><span>KITP program “Cosmic Origins: The First Billion Years”, Santa Barbara</span></li>
           <li><span class="yr">2024</span><span>IAU General Assembly, IAUS 391, Cape Town</span></li>
@@ -679,19 +726,50 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
 </script>
 <script>
 (function(){
-  var img=document.getElementById('lf-img'), miss=document.getElementById('lf-missing'); if(!img) return;
+  if(!document.getElementById('lf-uv')) return;
   var AVAILABLE={'7-uniform-mw':1,'7-uniform-stellar':1,'7-turbulent-mw':1,'7-turbulent-stellar':1,'14-uniform-mw':1,'14-uniform-stellar':1,'14-turbulent-mw':1,'14-turbulent-stellar':1};
   var NAMES={mw:'Milky Way dust',stellar:'large-grain dust'};
   var st={z:'7',ism:'turbulent',dust:'mw'};
   function render(){
     var key=st.z+'-'+st.ism+'-'+st.dust;
     document.querySelectorAll('.lf-btn').forEach(function(b){ var on=st[b.dataset.k]===b.dataset.v; b.classList.toggle('is-on',on); b.setAttribute('aria-pressed',String(on)); });
-    if(AVAILABLE[key]){
-      img.style.opacity=0;
-      setTimeout(function(){ img.src='figs/p26-lf-z'+key+'.jpg'; img.classList.toggle('z14',st.z==='14'); img.alt='UV and infrared luminosity functions at z ≈ '+st.z+', '+st.ism+' ISM, '+NAMES[st.dust]; img.hidden=false; miss.hidden=true; img.style.opacity=1; },180);
-    } else { img.hidden=true; miss.hidden=false; }
+    var uv=document.getElementById('lf-uv'), ir=document.getElementById('lf-ir'), irb=document.getElementById('lf-ir-btn'), noir=document.getElementById('lf-noir');
+    var label='z ≈ '+st.z+' · '+st.ism+' ISM · '+(st.dust==='mw'?'Milky Way dust grains':'large grains');
+    document.getElementById('lf-state').textContent=label;
+    uv.src='figs/p26-lf-z'+key+'-uv.jpg'; uv.alt='UV luminosity function, '+label;
+    if(st.z==='7'){ ir.src='figs/p26-lf-z'+key+'-ir.jpg'; ir.alt='Infrared luminosity function, '+label; irb.hidden=false; noir.hidden=true; }
+    else { irb.hidden=true; noir.hidden=false; }
+    document.querySelectorAll('.lg-data').forEach(function(e){ e.hidden=(e.dataset.z!==st.z); });
   }
   document.querySelectorAll('.lf-btn').forEach(function(b){ b.addEventListener('click',function(){ st[b.dataset.k]=b.dataset.v; render(); }); });
+})();
+</script>
+<script>
+(function(){
+  var lad=document.querySelector('.ladder'), svg=lad&&lad.querySelector('.zoomlines'); if(!svg) return;
+  var NS='http://www.w3.org/2000/svg';
+  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); svg.appendChild(e); return e; }
+  function draw(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var L=lad.getBoundingClientRect();
+    lad.querySelectorAll('img[data-zoom]').forEach(function(img){
+      var tgt=document.querySelector('#'+img.dataset.to+' .icon'); if(!tgt) return;
+      var a=img.getBoundingClientRect(), b=tgt.getBoundingClientRect(); if(!a.width||!b.width) return;
+      var f=img.dataset.zoom.split(',').map(Number);
+      var mx=a.left-L.left+f[0]*a.width, my=a.top-L.top+f[1]*a.height, h=a.width*0.13;
+      var cx=b.left-L.left+b.width/2, cy=b.top-L.top+b.height/2, R=b.width/2;
+      var dx=cx-mx, dy=cy-my, d=Math.hypot(dx,dy)||1, ux=dx/d, uy=dy/d, nx=-uy, ny=ux;
+      var p1=[mx+nx*h, my+ny*h], p2=[mx-nx*h, my-ny*h];
+      var q1=[cx-ux*R*0.35+nx*R*0.94, cy-uy*R*0.35+ny*R*0.94], q2=[cx-ux*R*0.35-nx*R*0.94, cy-uy*R*0.35-ny*R*0.94];
+      el('path',{'class':'cone',d:'M'+p1+' L'+q1+' L'+q2+' L'+p2+' Z'});
+      el('path',{'class':'edge',d:'M'+p1+' L'+q1+' M'+p2+' L'+q2});
+      el('rect',{'class':'box',x:mx-h,y:my-h,width:2*h,height:2*h});
+      el('rect',{'class':'box2',x:mx-h,y:my-h,width:2*h,height:2*h});
+    });
+  }
+  window.addEventListener('resize',draw); window.addEventListener('load',draw);
+  if(window.ResizeObserver) new ResizeObserver(draw).observe(lad);
+  draw();
 })();
 </script>
 
