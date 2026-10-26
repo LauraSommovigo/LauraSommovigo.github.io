@@ -119,6 +119,8 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .figs.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .figs.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
 .figs.gallery{align-items:end}
+.cloud-figs .fig:first-child .zoom{background:#0d0618}
+.cloud-figs .fig:first-child .zoom img{transform:scale(1.01)}
 .figs.cloud-figs{grid-template-columns:minmax(0,.57fr) minmax(0,1fr);align-items:start}
 .cloud-figs .fig:first-child .zoom{margin-top:4.8%}
 .more-figs{justify-self:start;font:500 .85rem var(--body);color:var(--link);background:transparent;border:1px solid var(--rule);border-radius:6px;padding:.45rem .8rem;cursor:pointer}
@@ -497,7 +499,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
             </ul></div>
           </div>
           <div class="figs gallery cloud-figs">
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="434" height="436" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
+            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="427" height="429" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
               <figcaption>Dust surface density in a simulated turbulent cloud; dots mark young stellar sources. <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a></figcaption></figure>
             <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="767" height="527" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
               <figcaption>Spectrum of a simulated cloud from SKIRT radiative transfer (blue; intrinsic stellar spectrum dotted) compared with my 1-D analytical model for a homogeneous cloud (green) and a cloud shaped by radiation pressure (magenta). <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a>; model from <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></figcaption></figure>
