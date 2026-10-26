@@ -114,6 +114,9 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .wl-track .band{position:absolute;left:0;right:0;top:4px;height:6px;border-radius:3px;background:linear-gradient(90deg,#4a3bb8 0%,#3d6fd1 14%,#3fa3c4 26%,#7fbf6a 36%,#e2c24a 44%,#e08a3a 54%,#c4552d 68%,#8e3a2a 84%,#5a2a26 100%)}
 .wl-mark{position:absolute;top:-1px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--surface);border:3px solid var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.25);left:12%;transition:left .35s ease}
 .wl-mark.uv{left:12%;opacity:1;border-color:var(--uv)} .wl-mark.ir{left:88%;opacity:1;border-color:var(--dust)}
+.wl-mark2{position:absolute;top:-1px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--surface);border:3px solid var(--dust);box-shadow:0 1px 3px rgba(0,0,0,.25);left:88%;opacity:0;transition:left .35s ease,opacity .25s}
+.wl-sticky[data-r="both"] .wl-mark{left:12%;border-color:var(--uv);opacity:1} .wl-sticky[data-r="both"] .wl-mark2{opacity:1}
+.wl-sticky[data-r="both"] .wl-ends span:first-child{color:var(--uv);font-weight:600} .wl-sticky[data-r="both"] .wl-ends span:last-child{color:var(--dust);font-weight:600}
 .wl-ends{display:flex;justify-content:space-between;font:500 .62rem/1.2 var(--mono);color:var(--muted);margin-top:.3rem;letter-spacing:.03em}
 .wl-ends span{transition:color .25s,font-weight .25s}
 .wl-sticky[data-r="uv"] .wl-ends span:first-child{color:var(--uv);font-weight:600}
@@ -528,7 +531,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
           <div class="figs gallery cloud-figs">
             <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-simulation-panel.jpg" width="427" height="429" loading="lazy" alt="Dust surface density map of a simulated turbulent star-forming cloud, 5 parsec scale bar"></button>
               <figcaption>Dust surface density in a simulated turbulent cloud; dots mark young stellar sources. <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a></figcaption></figure>
-            <figure class="fig"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="767" height="527" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
+            <figure class="fig" data-r="both"><button type="button" class="zoom" aria-label="Enlarge figure"><img src="figs/cloud-sed-comparison.jpg" width="767" height="527" loading="lazy" alt="Cloud SED from radiative-transfer simulation compared with analytical models for a homogeneous cloud and a cloud shaped by radiation pressure"></button>
               <figcaption>Spectrum of a simulated cloud from SKIRT radiative transfer (blue; intrinsic stellar spectrum dotted) compared with my 1-D analytical model for a homogeneous cloud (green) and a cloud shaped by radiation pressure (magenta). <a href="https://arxiv.org/abs/2407.01662">Di Mascia, Pallottini, Sommovigo+25</a>; model from <a href="https://arxiv.org/abs/2004.09528">Sommovigo+20</a></figcaption></figure>
           </div>
         </div>
@@ -732,7 +735,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   </footer>
 </main>
 
-<div class="wl-sticky" id="wl-sticky" aria-hidden="true"><div class="wl-track"><div class="band"></div><span class="wl-mark" id="wl-mark"></span></div><div class="wl-ends"><span>UV · attenuation</span><span>far-IR · emission</span></div></div>
+<div class="wl-sticky" id="wl-sticky" aria-hidden="true"><div class="wl-track"><div class="band"></div><span class="wl-mark" id="wl-mark"></span><span class="wl-mark2"></span></div><div class="wl-ends"><span>UV · attenuation</span><span>far-IR · emission</span></div></div>
 
 <dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
   <button type="button" id="lightbox-close">Close</button>
@@ -833,30 +836,43 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
 <script>
 (function(){
   var bar=document.getElementById('wl-sticky'), mark=document.getElementById('wl-mark'); if(!bar) return;
-  var ticking=false;
+  var ticking=false, hovR='';
   function regime(el){
     if(el.dataset.r) return el.dataset.r;
     if(el.classList.contains('uv')) return 'uv'; if(el.classList.contains('ir')) return 'ir';
     if(el.querySelector('.pipe-head.uv,.lf-h.uv')) return 'uv';
     if(el.querySelector('.pipe-head.ir,.lf-h.ir')) return 'ir'; return '';
   }
+  /* hover tracking: detect which UV/IR element the mouse is over */
+  document.addEventListener('mouseover',function(e){
+    var el=e.target.closest('figure[data-r], .cols2 > .uv, .cols2 > .ir, .pcell, .lf-cell');
+    var newR=el?regime(el):'';
+    if(newR!==hovR){ hovR=newR; req(); }
+  },{passive:true});
   function update(){
     ticking=false;
     var panel=document.querySelector('.panel:not([hidden])'), axis=document.getElementById('axis'), exp=document.querySelector('.explorer');
     if(!panel||!axis||!exp) return;
-    var line=Math.min(window.innerHeight*0.35,260), r='', seen={};
+    var line=Math.min(window.innerHeight*0.35,260), r='', seen={}, seenBoth=false;
     if(axis.getBoundingClientRect().bottom<0 && exp.getBoundingClientRect().bottom>line){
       panel.querySelectorAll('.cols2 > .uv, .cols2 > .ir, .pcell, .lf-cell, figure[data-r]').forEach(function(el){
         if(el.offsetParent===null) return; var b=el.getBoundingClientRect();
-        if(b.top<=line && b.bottom>=line-40){ var g=regime(el); if(g) seen[g]=1; }
+        if(b.top<=line && b.bottom>=line-40){ var g=regime(el); if(g==='both') seenBoth=true; else if(g) seen[g]=1; }
       });
-      r=(seen.uv&&seen.ir)?'':(seen.uv?'uv':(seen.ir?'ir':''));
+      if(seenBoth){
+        r='both';
+      } else if(seen.uv&&seen.ir){
+        r=hovR||''; /* desktop side-by-side: use hover to pick */
+      } else {
+        r=seen.uv?'uv':(seen.ir?'ir':'');
+      }
     }
     bar.classList.toggle('on',!!r);
-    if(r){ mark.className='wl-mark '+r; bar.setAttribute('data-r',r); }
+    if(r){ mark.className='wl-mark '+(r==='both'?'uv':r); bar.setAttribute('data-r',r); }
   }
   function req(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
   window.addEventListener('scroll',req,{passive:true}); window.addEventListener('resize',req);
+  document.addEventListener('mousemove',req,{passive:true});
   document.addEventListener('click',function(e){ if(e.target.closest('.ladder')) setTimeout(update,60); });
   update();
 })();
