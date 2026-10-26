@@ -104,6 +104,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .cols2 .ir h4{border-color:var(--dust);color:var(--dust)}
 .proj{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;font-size:.93rem;line-height:1.55}
 .proj strong{font-weight:600}
+.proj code{font:400 .8rem var(--mono);background:var(--sel);padding:.05rem .3rem;border-radius:3px}
 .proj .pq{display:block;font-family:var(--display);font-size:1.02rem;line-height:1.3;color:var(--fg);margin-bottom:.2rem}
 .proj a{font-family:var(--mono);font-size:.76rem;white-space:nowrap}
 .next{font-size:.93rem;color:var(--muted);border-left:2px solid var(--dust);padding-left:.9rem;max-width:44rem}
@@ -268,7 +269,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .pipe-arrow2{display:grid;justify-items:center;gap:.1rem;font:500 .6rem var(--mono);color:var(--muted);letter-spacing:.06em}
 @media (max-width:820px){ body .pipe-row4{display:grid;grid-template-columns:1fr 1fr;column-gap:1rem;row-gap:1rem} body .pcell{display:grid;gap:.3rem;align-content:start} body .pcell > *{grid-column:auto;grid-row:auto} body .pipe-row4 > .pipe-sep{display:none} }
 @media (max-width:560px){ body .pipe-row4{grid-template-columns:1fr} }
-.pipe-note{margin:.4rem 0 0;font-size:.88rem;color:var(--fg);border-left:2px solid var(--dust);padding-left:.8rem;max-width:44rem}
+.pipe-note{margin:.6rem 0 0;font-size:.92rem;font-style:italic;color:var(--fg);opacity:.75;max-width:44rem}
 .lead-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem 1.2rem;display:grid;gap:.55rem;align-content:start;min-width:0}
 .chip{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.35rem .5rem;border-radius:4px;border:1px solid currentColor}
@@ -454,9 +455,8 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
               </div>
               </div>
               <figcaption>Use the switches to change one ingredient at a time. At z&nbsp;≈&nbsp;7, a turbulent ISM with Milky Way dust grains and high dust yields matches both the UV and infrared data, while a uniform ISM cannot. At z&nbsp;≈&nbsp;14, the brighter UV luminosity function measurements favour low dust yields and/or a higher star-formation efficiency, though current data still span 1–2&nbsp;dex. <a href="https://arxiv.org/abs/2602.18556">Sommovigo+26a</a> · <a href="https://github.com/LauraSommovigo/dust_JWST_highz">Code on GitHub</a></figcaption>
-              <p class="pipe-note">This is a simplified first attempt at combining scales. Ongoing work adds further ingredients, such as dust removal by outflows.</p>
+              <p class="pipe-note">A proof-of-concept framework connecting dust physics across scales, now being extended with outflow-driven dust redistribution, live dust evolution and improved radiative-transfer prescriptions.</p>
             </figure>
-          <p class="next">Methods: analytical models, radiative transfer, cosmological simulations, synthetic observations and interpretable machine learning, tested against multi-wavelength observations.</p>
         </div>
 
         <div class="panel" role="tabpanel" id="panel-grains" aria-labelledby="tab-grains" hidden>
@@ -511,7 +511,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
           <div class="cols2">
             <div class="uv"><h4>UV–optical · attenuation</h4><ul class="proj">
               <li><span class="pq">Which attenuation curves should we assume in SED fitting?</span> Radiative transfer on IllustrisTNG50 and TNG100 galaxies gives physically motivated attenuation-curve priors for SED fitting. <a href="https://arxiv.org/abs/2502.13240">Sommovigo+25</a></li>
-              <li><span class="pq">Which galaxy properties set the attenuation-curve shape?</span> Information-ordered compression and symbolic regression give a new four-parameter attenuation curve, with scaling relations linking its parameters to galaxy properties. <a href="https://arxiv.org/abs/2606.10027">Sommovigo &amp; Bartlett+26b</a></li>
+              <li><span class="pq">Which galaxy properties set the attenuation-curve shape?</span> Information-ordered compression and symbolic regression give a new four-parameter attenuation curve, with scaling relations linking its parameters to galaxy properties. <a href="https://arxiv.org/abs/2606.10027">Sommovigo &amp; Bartlett+26b</a> Implemented as the <code>SommovigoBartlett2026</code> class in the <a href="https://synthesizer-project.github.io/synthesizer/_autosummary/synthesizer.emission_models.transformers.dust_attenuation.html#module-synthesizer.emission_models.transformers.dust_attenuation">Synthesizer dust attenuation module</a>.</li>
             </ul></div>
             <div class="ir"><h4>Far-infrared · emission</h4><ul class="proj">
               <li><span class="pq">What can large samples with single-band dust continuum tell us?</span> Dust temperature and mass from one continuum measurement combined with [C<span style="font-variant:small-caps">ii</span>]&nbsp;158&nbsp;µm, applied to the ALPINE (z&nbsp;≈&nbsp;4–6) and REBELS (z&nbsp;≈&nbsp;6–9) surveys. <a href="https://arxiv.org/abs/2102.08950">Sommovigo+21</a></li>
