@@ -837,12 +837,14 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
   function regime(el){
     if(el.dataset.r) return el.dataset.r;
     if(el.classList.contains('uv')) return 'uv'; if(el.classList.contains('ir')) return 'ir';
+    /* .pipe-img buttons live inside display:contents pcells; check sibling pipe-head */
+    if(el.classList.contains('pipe-img')){ var pc=el.closest('.pcell'); return pc?(pc.querySelector('.pipe-head.uv')?'uv':(pc.querySelector('.pipe-head.ir')?'ir':'')):''; }
     if(el.querySelector('.pipe-head.uv,.lf-h.uv')) return 'uv';
     if(el.querySelector('.pipe-head.ir,.lf-h.ir')) return 'ir'; return '';
   }
   /* hover tracking: detect which UV/IR element the mouse is over */
   document.addEventListener('mouseover',function(e){
-    var el=e.target.closest('figure[data-r], .cols2 > .uv, .cols2 > .ir, .pcell, .lf-cell');
+    var el=e.target.closest('figure[data-r], .cols2 > .uv, .cols2 > .ir, .pcell, .lf-cell, .pipe-img');
     var newR=el?regime(el):'';
     if(newR!==hovR){ hovR=newR; req(); }
   },{passive:true});
@@ -852,7 +854,8 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
     if(!panel||!axis||!exp) return;
     var line=Math.min(window.innerHeight*0.35,260), r='', seen={}, seenBoth=false;
     if(axis.getBoundingClientRect().bottom<0 && exp.getBoundingClientRect().bottom>line){
-      panel.querySelectorAll('.cols2 > .uv, .cols2 > .ir, .pcell, .lf-cell, figure[data-r]').forEach(function(el){
+      /* .pcell is display:contents (no box), so also query its visible children */
+      panel.querySelectorAll('.cols2 > .uv, .cols2 > .ir, .pipe-head.uv, .pipe-head.ir, .zoom.pipe-img, .lf-cell, figure[data-r]').forEach(function(el){
         if(el.offsetParent===null) return; var b=el.getBoundingClientRect();
         if(b.top<=line && b.bottom>=line-40){ var g=regime(el); if(g==='both') seenBoth=true; else if(g) seen[g]=1; }
       });
@@ -860,8 +863,10 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
         r='both';
       } else if(seen.uv&&seen.ir){
         r=hovR||''; /* desktop side-by-side: use hover to pick */
-      } else {
-        r=seen.uv?'uv':(seen.ir?'ir':'');
+      } else if(seen.uv||seen.ir){
+        r=seen.uv?'uv':'ir';
+      } else if(hovR){
+        r=hovR; /* fallback: nothing at reading line but mouse is on a regime element */
       }
     }
     bar.classList.toggle('on',!!r);
