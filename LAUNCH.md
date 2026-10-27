@@ -2,11 +2,7 @@
 
 Site address once live: **https://laurasommovigo.github.io**
 
-## Stage 1 — Private beta (now)
-Review the private preview link Claude shared. Send it to 1–2 trusted colleagues for comments.
-Nothing is on GitHub yet, so nobody can find it.
-
-## Stage 2 — Soft launch (live, but hidden from Google)
+## Stage 1 — Soft launch (live, but hidden from Google)
 The files ship with search engines blocked (`noindex` in index.html and `Disallow: /` in robots.txt).
 The site works for anyone holding the link, but Google won't list it.
 
@@ -17,7 +13,7 @@ The site works for anyone holding the link, but Google won't list it.
 
 (Free GitHub accounts can't serve Pages from a private repo, so this stage is the "private" live step. The link works, but nothing points to it.)
 
-## Stage 3 — Public launch (let Google in)
+## Stage 2 — Public launch (let Google in)
 1. In `index.html`, delete the line `<meta name="robots" content="noindex, nofollow">`.
 2. Replace the contents of `robots.txt` with:
    ```
@@ -31,7 +27,7 @@ The site works for anyone holding the link, but Google won't list it.
    - Go to URL Inspection, enter the homepage and click **Request indexing**.
 5. Optional: **Bing Webmaster Tools** can import directly from Search Console. This also covers DuckDuckGo.
 
-## Stage 4 — Become the top result for "Laura Sommovigo"
+## Stage 3 — Become the top result for "Laura Sommovigo"
 Google ranks a personal page first when trusted sites link to it under your name. In order of impact:
 1. **Columbia / LtU people page:** ask for your profile to link to the site.
 2. **ORCID:** add the site under *Websites & social links*. (Your ORCID iD isn't in the CV; add it to the site too.)
