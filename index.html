@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://laurasommovigo.github.io/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop offset='0' stop-color='%233d4fb0'/%3E%3Cstop offset='1' stop-color='%23b0612a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Laura Sommovigo", "url": "https://laurasommovigo.github.io/", "jobTitle": "Learning the Universe Research Fellow", "description": "Laura Sommovigo is an astrophysicist at Columbia University (Learning the Universe Fellow) studying galaxy formation and cosmic dust at cosmic dawn with JWST, ALMA, radiative transfer and simulations.", "affiliation": {"@type": "CollegeOrUniversity", "name": "Columbia University", "department": "Department of Astronomy"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Scuola Normale Superiore"}, {"@type": "CollegeOrUniversity", "name": "University of Pisa"}], "knowsAbout": ["Astrophysics", "Galaxy formation", "Cosmic dust", "Cosmic dawn", "JWST", "ALMA", "Radiative transfer"], "email": "mailto:laura.sommovigo.work@gmail.com", "sameAs": ["https://github.com/LauraSommovigo", "https://ui.adsabs.harvard.edu/public-libraries/yGCpjRKhTiK-mFa8iOseqA"]}</script>
 </head>
 <body>
@@ -24,8 +24,8 @@
 :root{
   --bg:#f6f7f9; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --rule:#dde0e7;
   --uv:#3d4fb0; --dust:#b0612a; --link:#2f43a3; --sel:#eeeff1; --dust-soft:rgba(176,97,42,.07); --mw:#c2185b; --st:#0e7c6b;
-  --display:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body:"Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
@@ -37,7 +37,8 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);margin:0}
+img{max-width:100%;height:auto}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);margin:0;overflow-x:hidden}
 .wrap{max-width:62rem;margin:0 auto;padding-block:0 4rem;
   padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
 a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
@@ -287,8 +288,8 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .spine{position:relative;padding-left:2.5rem;display:grid;gap:.7rem}
 .spine::before{content:"";position:absolute;left:.78rem;top:.9rem;bottom:.5rem;width:3px;border-radius:2px;background:var(--rule)}
 .snode{display:flex;align-items:center;gap:.65rem;margin-left:-2.5rem;margin-top:.4rem}
-.sdot{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--surface);border:2px solid var(--dust);font:600 .78rem var(--mono);color:var(--fg);position:relative;z-index:1;flex:none}
-.stx{font:500 .74rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg)}
+.sdot{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--surface);border:2px solid var(--dust);font:600 .78rem var(--body);color:var(--fg);position:relative;z-index:1;flex:none}
+.stx{font:500 .74rem/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--fg)}
 .sbody{margin:0;font-size:.9rem;color:var(--muted);max-width:42rem}
 .spine .pipe-in,.spine .pipe-out{margin-left:0}
 .pipe-row4{display:grid;grid-template-columns:1.026fr auto 1.185fr auto 2.41fr 1.4fr;grid-template-rows:auto auto auto;column-gap:.6rem;row-gap:.35rem;align-items:start}
@@ -591,7 +592,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
     <h2>Theory and observations</h2>
     <div class="collab-intro">
       <p class="measure">My work sits between simulation groups and observing teams, and much of it happens in collaborations.</p>
-      <button type="button" class="zoom puzzle" aria-label="Enlarge figure"><img src="figs/theory-obs-puzzle.jpg" width="1200" height="765" loading="lazy" alt="Diagram: theory, cosmological simulations and high-redshift galaxy observations as puzzle pieces in a cycle, with me in the middle holding the piece that connects them"></button>
+      <button type="button" class="zoom puzzle" aria-label="Enlarge figure"><img src="figs/theory-obs-puzzle.png" width="1200" height="765" loading="lazy" alt="Diagram: theory, cosmological simulations and high-redshift galaxy observations as puzzle pieces in a cycle, with me in the middle holding the piece that connects them"></button>
     </div>
     <div class="lead-cards">
       <article class="card card-wide">
@@ -725,13 +726,15 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
     <p>Department of Astronomy, Columbia University, 550 W 120th St, New York, NY 10027</p>
   </section>
 
-  <div style="font-size:.82rem;color:var(--muted);margin-top:2.5rem;display:grid;gap:.25rem">
-    <span style="font:500 .72rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase">Press releases</span>
-    <span>Superheated star factory in the early universe (2025) · <a href="https://www.astro.columbia.edu/news/astronomers-discover-superheated-star-factory-early-universe">Columbia University</a> · <a href="https://www.ras.ac.uk/news-and-press/research-highlights/superheated-star-factory-discovered-early-universe">Royal Astronomical Society</a> · <a href="https://normalenews.sns.it/una-fabbrica-di-stelle-agli-albori-delluniverso">Scuola Normale Superiore</a></span>
-    <span>Oxygen in the most distant known galaxy (2025) · <a href="https://www.eso.org/public/italy/news/eso2507/">European Southern Observatory</a></span>
-    <span>Most distant rotating disc galaxy (2024) · <a href="https://www.almaobservatory.org/en/press-releases/space-oddity-most-distant-rotating-disc-galaxy-found/">ALMA Observatory</a> · <a href="https://www.eso.org/public/italy/news/eso2415/">European Southern Observatory</a></span>
-    <span>ISPIRA: inspiring science careers for teenage girls (2022) · <a href="https://normalenews.sns.it/dottorande-scienziate-ispirano-la-passione-per-la-scienza-in-giovani-studentesse-e-studenti-delle-scuole-medie">Scuola Normale Superiore</a></span>
-  </div>
+  <section id="press" style="margin-top:3.5rem;display:grid;gap:1rem">
+    <span class="eyebrow">Press releases</span>
+    <ul class="roles">
+      <li><span class="yr">2025</span><span>Superheated star factory in the early universe · <a href="https://www.astro.columbia.edu/news/astronomers-discover-superheated-star-factory-early-universe">Columbia University</a> · <a href="https://www.ras.ac.uk/news-and-press/research-highlights/superheated-star-factory-discovered-early-universe">Royal Astronomical Society</a> · <a href="https://normalenews.sns.it/una-fabbrica-di-stelle-agli-albori-delluniverso">Scuola Normale Superiore</a></span></li>
+      <li><span class="yr">2025</span><span>Oxygen in the most distant known galaxy · <a href="https://www.eso.org/public/italy/news/eso2507/">European Southern Observatory</a></span></li>
+      <li><span class="yr">2024</span><span>Most distant rotating disc galaxy · <a href="https://www.almaobservatory.org/en/press-releases/space-oddity-most-distant-rotating-disc-galaxy-found/">ALMA Observatory</a> · <a href="https://www.eso.org/public/italy/news/eso2415/">European Southern Observatory</a></span></li>
+      <li><span class="yr">2022</span><span>ISPIRA: inspiring science careers for teenage girls · <a href="https://normalenews.sns.it/dottorande-scienziate-ispirano-la-passione-per-la-scienza-in-giovani-studentesse-e-studenti-delle-scuole-medie">Scuola Normale Superiore</a></span></li>
+    </ul>
+  </section>
 
   <footer>
     <span>© 2026 Laura Sommovigo</span>
