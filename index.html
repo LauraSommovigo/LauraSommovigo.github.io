@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://laurasommovigo.github.io/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop offset='0' stop-color='%233d4fb0'/%3E%3Cstop offset='1' stop-color='%23b0612a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Slab:wght@300;400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Laura Sommovigo", "url": "https://laurasommovigo.github.io/", "jobTitle": "Learning the Universe Research Fellow", "description": "Laura Sommovigo is an astrophysicist at Columbia University (Learning the Universe Fellow) studying galaxy formation and cosmic dust at cosmic dawn with JWST, ALMA, radiative transfer and simulations.", "affiliation": {"@type": "CollegeOrUniversity", "name": "Columbia University", "department": "Department of Astronomy"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Scuola Normale Superiore"}, {"@type": "CollegeOrUniversity", "name": "University of Pisa"}], "knowsAbout": ["Astrophysics", "Galaxy formation", "Cosmic dust", "Cosmic dawn", "JWST", "ALMA", "Radiative transfer"], "email": "mailto:laura.sommovigo.work@gmail.com", "sameAs": ["https://github.com/LauraSommovigo", "https://ui.adsabs.harvard.edu/public-libraries/yGCpjRKhTiK-mFa8iOseqA"]}</script>
 </head>
 <body>
@@ -24,9 +24,9 @@
 :root{
   --bg:#f6f7f9; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --rule:#dde0e7;
   --uv:#3d4fb0; --dust:#b0612a; --link:#2f43a3; --sel:#eeeff1; --dust-soft:rgba(176,97,42,.07); --mw:#c2185b; --st:#0e7c6b;
-  --display:"Roboto Slab", Rockwell, Georgia, serif;
-  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --display:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#101218; --surface:#161922; --fg:#e6e8ee; --muted:#9aa1b2; --rule:#2a2f3c;
@@ -43,7 +43,7 @@ body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);margin:0}
 a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--uv);outline-offset:3px;border-radius:3px}
-h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0}
 h1{font-size:clamp(2.4rem,6vw,3.3rem);line-height:1.05;letter-spacing:-.01em}
 h2{font-size:clamp(1.5rem,3vw,1.85rem);line-height:1.2}
 p{margin:0}
@@ -86,7 +86,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .zoomlines .box2{fill:none;stroke:var(--dust);stroke-width:.8}
 .ladder-note{font:400 .7rem/1.5 var(--mono);color:var(--muted);padding:.75rem .6rem 0;letter-spacing:.04em}
 
-.panels{min-width:0;padding:1.4rem 1.6rem 1.6rem;display:grid;gap:1.1rem;align-content:start}
+.panels{min-width:0;padding:1.4rem 1.6rem 1.6rem;display:grid;gap:1.1rem;align-content:start;overflow:hidden}
 .axis{display:grid;gap:.35rem}
 .axis .band{height:6px;border-radius:3px;background:linear-gradient(90deg,#4a3bb8 0%,#3d6fd1 14%,#3fa3c4 26%,#7fbf6a 36%,#e2c24a 44%,#e08a3a 54%,#c4552d 68%,#8e3a2a 84%,#5a2a26 100%)}
 .ax-line,.ax-tels{display:grid;grid-template-columns:6.4rem minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr);gap:.6rem;align-items:start;font:400 .7rem/1.4 var(--mono);color:var(--muted)}
@@ -122,7 +122,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .wl-sticky[data-r="uv"] .wl-ends span:first-child{color:var(--uv);font-weight:600}
 .wl-sticky[data-r="ir"] .wl-ends span:last-child{color:var(--dust);font-weight:600}
 .mats-fig{max-width:30rem}
-.panel{display:grid;gap:1rem;min-width:0}
+.panel{display:grid;gap:1rem;min-width:0;overflow:hidden}
 .panel h3{font-size:1.45rem;line-height:1.2}
 .panel .len{font:400 .75rem/1.4 var(--mono);color:var(--dust);letter-spacing:.06em}
 .panel .q{color:var(--fg);max-width:44rem}
@@ -252,7 +252,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 .pipe-in{max-width:30rem;margin-inline:auto;width:100%}
 .pipe-pop{display:grid;gap:.5rem}
 .lf-slides{aspect-ratio:auto;border:0;padding:0;background:transparent;text-align:center}
-.pipe-title{margin:.5rem 0 0;font-family:var(--display);font-weight:400;font-size:1.25rem}
+.pipe-title{margin:.5rem 0 0;font-family:var(--display);font-weight:600;font-size:1.25rem}
 .pipe-lead{font-size:.95rem;max-width:44rem;color:var(--fg)}
 .merge{position:relative;height:84px;max-width:36rem;margin:0 auto;width:100%;color:var(--dust)}
 .merge.m-pop{max-width:40rem;color:var(--uv)}
@@ -302,7 +302,7 @@ section{margin-top:3.5rem;display:grid;gap:1rem}
 @media (max-width:560px){ body .pipe-row4{grid-template-columns:1fr} }
 .pipe-note{margin:.6rem 0 0;font-size:.92rem;font-style:italic;color:var(--fg);opacity:.75;max-width:44rem}
 .collab-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.5rem;align-items:center}
-.zoom.puzzle{background:#000;border-radius:10px}
+.zoom.puzzle{background:var(--bg);border-radius:10px}
 .lead-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem 1.2rem;display:grid;gap:.55rem;align-content:start;min-width:0}
 .chip{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.35rem .5rem;border-radius:4px;border:1px solid currentColor}
@@ -725,11 +725,13 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--rule);font
     <p>Department of Astronomy, Columbia University, 550 W 120th St, New York, NY 10027</p>
   </section>
 
-  <p style="font:400 .74rem/1.5 var(--mono);color:var(--muted);letter-spacing:.03em;margin-top:2.5rem"><span style="text-transform:uppercase;letter-spacing:.1em;font-weight:500">Press releases</span><br>
-    Superheated star factory in the early universe (2025) · <a href="https://www.astro.columbia.edu/news/astronomers-discover-superheated-star-factory-early-universe">Columbia University</a> · <a href="https://www.ras.ac.uk/news-and-press/research-highlights/superheated-star-factory-discovered-early-universe">Royal Astronomical Society</a> · <a href="https://normalenews.sns.it/una-fabbrica-di-stelle-agli-albori-delluniverso">Scuola Normale Superiore</a><br>
-    Oxygen in the most distant known galaxy (2025) · <a href="https://www.eso.org/public/italy/news/eso2507/">European Southern Observatory</a><br>
-    Most distant rotating disc galaxy (2024) · <a href="https://www.almaobservatory.org/en/press-releases/space-oddity-most-distant-rotating-disc-galaxy-found/">ALMA Observatory</a> · <a href="https://www.eso.org/public/italy/news/eso2415/">European Southern Observatory</a><br>
-    ISPIRA: inspiring science careers for teenage girls (2022) · <a href="https://normalenews.sns.it/dottorande-scienziate-ispirano-la-passione-per-la-scienza-in-giovani-studentesse-e-studenti-delle-scuole-medie">Scuola Normale Superiore</a></p>
+  <div style="font-size:.82rem;color:var(--muted);margin-top:2.5rem;display:grid;gap:.25rem">
+    <span style="font:500 .72rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase">Press releases</span>
+    <span>Superheated star factory in the early universe (2025) · <a href="https://www.astro.columbia.edu/news/astronomers-discover-superheated-star-factory-early-universe">Columbia University</a> · <a href="https://www.ras.ac.uk/news-and-press/research-highlights/superheated-star-factory-discovered-early-universe">Royal Astronomical Society</a> · <a href="https://normalenews.sns.it/una-fabbrica-di-stelle-agli-albori-delluniverso">Scuola Normale Superiore</a></span>
+    <span>Oxygen in the most distant known galaxy (2025) · <a href="https://www.eso.org/public/italy/news/eso2507/">European Southern Observatory</a></span>
+    <span>Most distant rotating disc galaxy (2024) · <a href="https://www.almaobservatory.org/en/press-releases/space-oddity-most-distant-rotating-disc-galaxy-found/">ALMA Observatory</a> · <a href="https://www.eso.org/public/italy/news/eso2415/">European Southern Observatory</a></span>
+    <span>ISPIRA: inspiring science careers for teenage girls (2022) · <a href="https://normalenews.sns.it/dottorande-scienziate-ispirano-la-passione-per-la-scienza-in-giovani-studentesse-e-studenti-delle-scuole-medie">Scuola Normale Superiore</a></span>
+  </div>
 
   <footer>
     <span>© 2026 Laura Sommovigo</span>
